@@ -35,6 +35,7 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 150px;
+  font-family: "Galmuri14";
 `;
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
