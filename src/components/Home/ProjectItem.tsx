@@ -1,20 +1,18 @@
 import styled from "styled-components";
 import { useSetAtom } from "jotai";
-import { curProject } from "./Projects";
+import { motion, Variants } from "motion/react";
 
-const Wrapper = styled.div`
-  border-radius: 10px;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  box-shadow: 0px 10px 20px #9e9e9e;
-  position: relative;
-`;
+import { curProject } from "./Projects";
 
 const ProjectImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: scale 0.3s linear;
+
+  &:hover {
+    scale: 1.1;
+  }
 `;
 
 interface Props {
@@ -42,8 +40,34 @@ const ProjectItem = (props: Props) => {
     setCurProject(null);
   };
 
+  const variants: Variants = {
+    offscreen: {
+      scale: 0.5
+    },
+    onscreen: {
+      scale: 1,
+      transition: {
+        type: "spring"
+      }
+    }
+  }
+
   return (
-    <Wrapper onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
+    <motion.div
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      style={{
+        borderRadius: "10px",
+        width: "100%",
+        aspectRatio: "1 / 1",
+        overflow: "hidden",
+        boxShadow: "0px 10px 20px #9e9e9e",
+        position: "relative",
+      }}
+      initial="offscreen"
+      whileInView="onscreen"
+      variants={variants}
+    >
       <a href={href}>
         <ProjectImg
           src={imgSrc}
@@ -51,7 +75,7 @@ const ProjectItem = (props: Props) => {
           loading="lazy"
         />
       </a>
-    </Wrapper>
+    </motion.div>
   );
 };
 

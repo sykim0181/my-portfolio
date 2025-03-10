@@ -3,6 +3,8 @@ import styled from "styled-components";
 const Wrapper = styled.footer`
   display: flex;
   padding: 2rem;
+  background-color: black;
+  color: white;
 `;
 
 const Contact = styled.span`
@@ -19,6 +21,7 @@ const Links = styled.div`
 
 const SocialLink = styled.a`
   position: relative;
+  color: white;
 
   &::after {
     content: "";
@@ -31,7 +34,7 @@ const SocialLink = styled.a`
 
   &:hover::after {
     width: 100%;
-    background-color: black;
+    background-color: white;
   }
 `;
 

@@ -19,7 +19,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
+  padding: 5rem 0;
   box-sizing: border-box;
   position: relative;
 `;
@@ -27,7 +27,7 @@ const Wrapper = styled.section`
 const Title = styled.h1`
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 2.5rem;
   font-family: "Montserrat";
   font-weight: 300;
   font-style: italic;
@@ -35,7 +35,7 @@ const Title = styled.h1`
 
 const DefaultProjectList = styled.div`
   display: grid;
-  gap: 10%;
+  gap: min(10vw, 8rem);
   width: var(--default-width);
 `;
 

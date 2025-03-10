@@ -6,13 +6,13 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
-  gap: 40px;
+  padding: 5rem 0;
+  gap: 5rem;
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 2.5rem;
   text-align: center;
   font-family: "Montserrat";
   font-weight: 300;

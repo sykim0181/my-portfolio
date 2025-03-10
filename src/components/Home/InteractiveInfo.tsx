@@ -66,7 +66,9 @@ const InteractiveInfo = () => {
         <Window id="introduction">
           <BoldParagraph>김소연</BoldParagraph>
           <BoldParagraph>FRONTEND DEVELOPER</BoldParagraph>
-          <p>soyeon364@naver.com</p>
+          <p style={{
+            marginTop: '1rem'
+          }}>soyeon364@naver.com</p>
         </Window>
       </Draggable>
     </Wrapper>
