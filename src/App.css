@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fastly.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fastly.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css");
 
 #root {
+  --default-width: 80%;
+
   margin: 0 auto;
 }
 
@@ -25,6 +27,12 @@ img {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 /* font */

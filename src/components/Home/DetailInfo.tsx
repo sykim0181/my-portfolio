@@ -14,13 +14,13 @@ const Title = styled.h1`
   font-size: 2.5rem;
   margin-bottom: 30px;
   text-align: center;
-  font-family:  "Montserrat";
+  font-family: "Montserrat";
   font-weight: 300;
   font-style: italic;
 `;
 
 const InfoSection = styled.section`
-  width: 80%;
+  width: var(--default-width);
 `;
 
 const InfoContent = styled.div`

@@ -28,7 +28,7 @@ const Title = styled.h1`
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 30px;
-  font-family:  "Montserrat";
+  font-family: "Montserrat";
   font-weight: 300;
   font-style: italic;
 `;
@@ -36,7 +36,7 @@ const Title = styled.h1`
 const DefaultProjectList = styled.div`
   display: grid;
   gap: 10%;
-  width: 80%;
+  width: var(--default-width);
 `;
 
 const ProjectListForPC = styled(DefaultProjectList)`
