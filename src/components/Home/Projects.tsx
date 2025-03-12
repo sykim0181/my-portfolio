@@ -7,6 +7,33 @@ import ProjectItem from "./ProjectItem";
 import useResponsive from "../../hooks/useResponsive";
 import { Position } from "../../types/commonTypes";
 
+const projectDatas: {
+  name: string;
+  imgSrc: string;
+  href: string;
+}[] = [
+  {
+    name: "music-archiving",
+    href: "/project/1",
+    imgSrc: "/projects/music-archiving.gif",
+  },
+  {
+    name: "XSO - e-commerce",
+    href: "/project/2",
+    imgSrc: "/projects/xso.webp",
+  },
+  {
+    name: "Aiku",
+    href: "/project/3",
+    imgSrc: "/projects/aiku.webp",
+  },
+  {
+    name: "SyncSchedule",
+    href: "/project/4",
+    imgSrc: "/projects/sync-schedule.webp",
+  },
+];
+
 type CurrentProject = {
   name: string;
   position: Position;
@@ -56,25 +83,14 @@ const Projects = () => {
       <Title>(Projects)</Title>
 
       <ProjectList>
-        <ProjectItem
-          href="/"
-          imgSrc="/projects/music-archiving.png"
-          name="music-archiving"
-        />
-
-        <ProjectItem
-          href="/"
-          imgSrc="/projects/xso.webp"
-          name="XSO - e-commerce"
-        />
-
-        <ProjectItem href="/" imgSrc="/projects/aiku.webp" name="Aiku" />
-
-        <ProjectItem
-          href="/"
-          imgSrc="/projects/sync-schedule.png"
-          name="SyncSchedule"
-        />
+        {projectDatas.map((project) => (
+          <ProjectItem
+            key={project.name}
+            name={project.name}
+            imgSrc={project.imgSrc}
+            href={project.href}
+          />
+        ))}
       </ProjectList>
 
       <ProjectCursor />
@@ -138,7 +154,7 @@ const ProjectCursor = () => {
             }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            exit={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scaleX: 0 }}
             transition={{
               duration: 0.2,
               delay: 0.1,

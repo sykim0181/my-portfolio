@@ -1,12 +1,23 @@
 import { Outlet } from "react-router";
-import Footer from "../components/Footer";
+import styled from "styled-components";
+
+import Footer from "../components/Common/Footer";
+import RootErrorBoundary from "../components/Common/RootErrorBoundary";
+
+const Wrapper = styled.main`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+`;
 
 const MainLayout = () => {
   return (
     <>
-      <main>
-        <Outlet />
-      </main>
+      <RootErrorBoundary>
+        <Wrapper>
+          <Outlet />
+        </Wrapper>
+      </RootErrorBoundary>
       <Footer />
     </>
   );

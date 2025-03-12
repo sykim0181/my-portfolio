@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { FiAlertTriangle } from "react-icons/fi";
 
-import Window from "../Window";
+import Window from "./Window";
 import Draggable from "./Draggable";
 
 const Wrapper = styled.section`

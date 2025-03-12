@@ -3,8 +3,12 @@
 
 #root {
   --default-width: 80%;
+  --primary-color: #5e63d4;
 
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
@@ -33,6 +37,12 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: black;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /* font */

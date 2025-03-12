@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import useResponsive from "../../hooks/useResponsive";
+import DescriptionParagraph from "../Common/DescriptionParagraph";
 
 const Wrapper = styled.section`
   background-color: #c9c2d0;
@@ -69,23 +70,6 @@ const ItemDescriptionsForMobile = styled(ItemDescriptions)`
   margin-top: 1.5rem;
 `;
 
-const ItemDescriptionWrapper = styled.div`
-  display: flex;
-
-  & p:first-of-type {
-    margin-right: 5px;
-  }
-`;
-
-const ItemDescription = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <ItemDescriptionWrapper>
-      <p>•</p>
-      <p>{children}</p>
-    </ItemDescriptionWrapper>
-  );
-};
-
 const DetailInfo = () => {
   const { isMobile } = useResponsive();
 
@@ -106,8 +90,16 @@ const DetailInfo = () => {
             </ItemTitleWrapper>
 
             <ItemDescriptions>
-              <ItemDescription>전공: 컴퓨터공학부</ItemDescription>
-              <ItemDescription>학점: 4.02 / 4.5</ItemDescription>
+              <DescriptionParagraph
+                description={{
+                  title: "전공: 컴퓨터공학부",
+                }}
+              />
+              <DescriptionParagraph
+                description={{
+                  title: "학점: 4.02 / 4.5",
+                }}
+              />
             </ItemDescriptions>
           </InfoContentItem>
         </InfoContent>
@@ -123,12 +115,17 @@ const DetailInfo = () => {
             </ItemTitleWrapper>
 
             <ItemDescriptions>
-              <ItemDescription>
-                문서 작성 웹 애플리케이션 GAIA Docs 개발
-              </ItemDescription>
-              <ItemDescription>
-                프레젠테이션 앱(Point), 도형 관련 기능 개발 및 유지 보수
-              </ItemDescription>
+              <DescriptionParagraph
+                description={{
+                  title: "문서 작성 웹 애플리케이션 GAIA Docs 개발",
+                }}
+              />
+              <DescriptionParagraph
+                description={{
+                  title:
+                    "프레젠테이션 앱(Point), 도형 관련 기능 개발 및 유지 보수",
+                }}
+              />
             </ItemDescriptions>
           </InfoContentItem>
         </InfoContent>
