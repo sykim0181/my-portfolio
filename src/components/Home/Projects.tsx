@@ -42,28 +42,32 @@ type CurrentProject = {
 export const curProject = atom<CurrentProject | null>(null);
 
 const Wrapper = styled.section`
-  background-color: ivory;
+  position: relative;
+  padding: 6rem 0;
+`;
+
+const InnerContainer = styled.div`
+  width: var(--default-width);
+  max-width: var(--max-width);
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5rem 0;
-  box-sizing: border-box;
-  position: relative;
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 5rem;
   font-family: "Montserrat";
-  font-weight: 300;
+  font-weight: bold;
   font-style: italic;
 `;
 
 const DefaultProjectList = styled.div`
   display: grid;
-  gap: min(10vw, 8rem);
-  width: var(--default-width);
+  gap: min(10vw, 3rem);
 `;
 
 const ProjectListForPC = styled(DefaultProjectList)`
@@ -80,23 +84,34 @@ const Projects = () => {
 
   return (
     <Wrapper>
-      <Title>(Projects)</Title>
+      <InnerContainer>
+        <Title>(Projects)</Title>
 
-      <ProjectList>
-        {projectDatas.map((project) => (
-          <ProjectItem
-            key={project.name}
-            name={project.name}
-            imgSrc={project.imgSrc}
-            href={project.href}
-          />
-        ))}
-      </ProjectList>
+        <ProjectList>
+          {projectDatas.map((project) => (
+            <ProjectItem
+              key={project.name}
+              name={project.name}
+              imgSrc={project.imgSrc}
+              href={project.href}
+            />
+          ))}
+        </ProjectList>
+      </InnerContainer>
 
       <ProjectCursor />
     </Wrapper>
   );
 };
+
+const ProjectCursorWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+`;
 
 const ProjectCursor = () => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -128,17 +143,7 @@ const ProjectCursor = () => {
   }
 
   return (
-    <div
-      ref={ref}
-      style={{
-        width: "100%",
-        height: "100%",
-        position: "absolute",
-        top: 0,
-        left: 0,
-        pointerEvents: "none",
-      }}
-    >
+    <ProjectCursorWrapper ref={ref}>
       <AnimatePresence>
         {hoverOnProject && (
           <motion.div
@@ -164,7 +169,7 @@ const ProjectCursor = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </ProjectCursorWrapper>
   );
 };
 

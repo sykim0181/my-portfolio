@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Footer from "../components/Common/Footer";
 import RootErrorBoundary from "../components/Common/RootErrorBoundary";
 
-const Wrapper = styled.main`
+const Wrapper = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
