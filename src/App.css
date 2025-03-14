@@ -5,35 +5,13 @@
   --default-width: 80%;
   --max-width: 1024px;
   --primary-color: #5e63d4;
+  --secondary-color: #f68eab;
 
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-@media screen and (max-width: 600px) {
-  html {
-  	font-size: 7px;
-  }
-}
-
-@media screen and (min-width: 600px) and (max-width: 1000px) {
-  html {
-  	font-size: 9px;
-  }
-}
-
-@media screen and (min-width: 1000px) and (max-width: 1440px) {
-  html {
-  	font-size: 12px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  html {
-  	font-size: 16px;
-  }
+  background-color: #eaeaea;
 }
 
 body {
@@ -75,4 +53,20 @@ button {
   font-family: "PretenTard-Regular";
   font-weight: normal;
   src: url("./fonts/Pretendard-Regular.ttf");
+}
+
+@font-face {
+  font-family: "SBAggroB";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PartialSansKR-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }

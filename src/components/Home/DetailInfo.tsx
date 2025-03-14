@@ -71,10 +71,10 @@ const ItemDescriptionsForMobile = styled(ItemDescriptions)`
 `;
 
 const DetailInfo = () => {
-  const { isMobile } = useResponsive();
+  const { isTablet } = useResponsive();
 
-  const InfoContentItem = isMobile ? Item : ItemForPC;
-  const ItemDescriptions = isMobile
+  const InfoContentItem = isTablet ? Item : ItemForPC;
+  const ItemDescriptions = isTablet
     ? ItemDescriptionsForMobile
     : ItemDescriptionsForPC;
 

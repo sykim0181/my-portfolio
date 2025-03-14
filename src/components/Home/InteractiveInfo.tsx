@@ -3,12 +3,12 @@ import { FiAlertTriangle } from "react-icons/fi";
 
 import Window from "./Window";
 import Draggable from "./Draggable";
+import useResponsive from "../../hooks/useResponsive";
 
 const Wrapper = styled.section`
   width: 100%;
   height: 100vh;
-  min-height: 500px;
-  background-color: #e6e6e6;
+  background-color: white;
   position: relative;
   user-select: none;
   -webkit-user-select: none;
@@ -17,59 +17,121 @@ const Wrapper = styled.section`
   overflow: hidden;
 `;
 
-const BoldParagraph = styled.p`
-  font-size: 2rem;
+const CommonBoldParagraph = styled.p`
   text-align: center;
+`;
+const BoldParagraphForPC = styled(CommonBoldParagraph)`
+  font-size: 2rem;
+`;
+const BoldParagraphForTablet = styled(CommonBoldParagraph)`
+  font-size: 1.5rem;
+`;
+const BoldParagraphForMobile = styled(CommonBoldParagraph)`
+  font-size: 1rem;
+`;
+
+const RegularParagraphForPC = styled.p`
+  font-size: 1rem;
+  margin-top: 1rem;
+`;
+const RegularParagraphForTablet = styled.p`
+  font-size: 0.8rem;
+  margin-top: 0.8rem;
+`;
+const RegularParagraphForMobile = styled.p`
+  font-size: 0.6rem;
+  margin-top: 0.6rem;
+`;
+
+const Img = styled.img`
+  width: 100%;
+`;
+
+const DraggableWindow = styled(Window)`
+  aspect-ratio: 2 / 1;
 `;
 
 const InteractiveInfo = () => {
+  const { isMobile, isTablet } = useResponsive();
+  const backgroundColor = isMobile ? "pink" : isTablet ? "ivory" : "gray";
+
+  const BoldParagraph = isMobile
+    ? BoldParagraphForMobile
+    : isTablet
+      ? BoldParagraphForTablet
+      : BoldParagraphForPC;
+
+  const RegularParagraph = isMobile
+    ? RegularParagraphForMobile
+    : isTablet
+      ? RegularParagraphForTablet
+      : RegularParagraphForPC;
+
   return (
-    <Wrapper id="interative-info">
-      <Draggable initialPosition={{ x: 35, y: 15 }}>
-        <Window id="introduction">
+    <Wrapper id="interative-info" style={{ backgroundColor: backgroundColor }}>
+      <Draggable
+        initialPosition={{ x: 35, y: 15 }}
+        size={isMobile ? "300px" : isTablet ? "350px" : "410px"}
+      >
+        <DraggableWindow id="introduction">
           <FiAlertTriangle size={"2rem"} />
           <BoldParagraph>404 Error</BoldParagraph>
-        </Window>
+        </DraggableWindow>
       </Draggable>
 
-      <Draggable initialPosition={{ x: 10, y: 60 }}>
-        <img src="/home/phone.png" width={100} />
+      <Draggable
+        initialPosition={{ x: 10, y: 60 }}
+        size={isMobile ? "120px" : isTablet ? "120px" : "120px"}
+      >
+        <Img src="/home/phone.png" />
       </Draggable>
 
-      <Draggable initialPosition={{ x: 70, y: 15 }}>
-        <img
-          src="/home/tape.png"
-          width={200}
-          style={{ transform: "rotate(10deg)" }}
-        />
+      <Draggable
+        initialPosition={{ x: 70, y: 15 }}
+        size={isMobile ? "200px" : isTablet ? "200px" : "200px"}
+      >
+        <Img src="/home/tape.png" style={{ transform: "rotate(10deg)" }} />
       </Draggable>
 
-      <Draggable initialPosition={{ x: 15, y: 39 }}>
-        <img src="/home/tv.png" width={180} />
+      <Draggable
+        initialPosition={{ x: 15, y: 39 }}
+        size={isMobile ? "200px" : isTablet ? "200px" : "200px"}
+      >
+        <Img src="/home/tv.png" />
       </Draggable>
 
-      <Draggable initialPosition={{ x: 78, y: 66 }}>
-        <img src="/home/gromit.png" width={200} />
+      <Draggable
+        initialPosition={{ x: 78, y: 66 }}
+        size={isMobile ? "200px" : isTablet ? "200px" : "200px"}
+      >
+        <Img src="/home/gromit.png" />
       </Draggable>
 
-      <Draggable initialPosition={{ x: 25, y: 10 }}>
-        <img src="/home/toast.png" width={200} />
+      <Draggable
+        initialPosition={{ x: 25, y: 10 }}
+        size={isMobile ? "200px" : isTablet ? "200px" : "200px"}
+      >
+        <Img src="/home/toast.png" />
       </Draggable>
 
-      <Draggable initialPosition={{ x: 15, y: 60 }}>
-        <Window id="introduction">
+      <Draggable
+        initialPosition={{ x: 15, y: 60 }}
+        size={isMobile ? "300px" : isTablet ? "350px" : "410px"}
+      >
+        <DraggableWindow id="introduction">
           <BoldParagraph>Hello, World!</BoldParagraph>
-        </Window>
+        </DraggableWindow>
       </Draggable>
 
-      <Draggable initialPosition={{ x: 45, y: 40 }}>
-        <Window id="introduction">
+      <Draggable
+        initialPosition={{ x: 45, y: 40 }}
+        size={isMobile ? "300px" : isTablet ? "350px" : "410px"}
+      >
+        <DraggableWindow id="introduction">
           <BoldParagraph>김소연</BoldParagraph>
           <BoldParagraph>FRONTEND DEVELOPER</BoldParagraph>
-          <p style={{
-            marginTop: '1rem'
-          }}>soyeon364@naver.com</p>
-        </Window>
+          <RegularParagraph>soyeon364@naver.com</RegularParagraph>
+        </DraggableWindow>
       </Draggable>
     </Wrapper>
   );

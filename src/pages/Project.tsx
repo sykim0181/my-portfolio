@@ -102,7 +102,7 @@ const Skills = styled.div`
 `;
 
 const SkillForCommon = styled.div`
-  background-color: #ebebeb;
+  background-color: white;
   color: #f68eab;
   padding: 0.5rem 1rem;
   border-radius: 1.5rem;
@@ -142,14 +142,14 @@ const Project = () => {
     staleTime: 1000 * 60 * 10,
   });
 
-  const { isMobile } = useResponsive();
+  const { isTablet } = useResponsive();
 
   const navigate = useNavigate();
 
-  const Introduction = isMobile ? IntroductionForMobile : IntroductionForPC;
-  const Skill = isMobile ? SkillForMobile : SkillForCommon;
-  const LinkWrapper = isMobile ? LinkWrapperForCommon : LinkWrapperForPC;
-  const BriefDescription = isMobile
+  const Introduction = isTablet ? IntroductionForMobile : IntroductionForPC;
+  const Skill = isTablet ? SkillForMobile : SkillForCommon;
+  const LinkWrapper = isTablet ? LinkWrapperForCommon : LinkWrapperForPC;
+  const BriefDescription = isTablet
     ? BriefDescriptionForMobile
     : BriefDescriptionForPC;
 
@@ -164,8 +164,6 @@ const Project = () => {
   }
 
   const Content = () => {
-    // return <ContentSkeleton />;
-
     if (isFetching || data === undefined) {
       return <ContentSkeleton />;
     }
@@ -174,7 +172,7 @@ const Project = () => {
         <h1>{data.name}</h1>
 
         <Introduction>
-          <ProjectImage isMobile={isMobile} src={data.image} />
+          <ProjectImage isMobile={isTablet} src={data.image} />
           <BriefDescription>
             <p>{data.short_description}</p>
             <p>{convertToPeriodStr(data.period_start, data.period_end)}</p>

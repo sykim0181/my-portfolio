@@ -1,11 +1,7 @@
 import styled from "styled-components";
-import { useEffect, useRef } from "react";
-import { atom, useAtomValue } from "jotai";
-import { AnimatePresence, motion, useMotionValue } from "motion/react";
 
 import ProjectItem from "./ProjectItem";
 import useResponsive from "../../hooks/useResponsive";
-import { Position } from "../../types/commonTypes";
 
 const projectDatas: {
   name: string;
@@ -34,13 +30,6 @@ const projectDatas: {
   },
 ];
 
-type CurrentProject = {
-  name: string;
-  position: Position;
-};
-
-export const curProject = atom<CurrentProject | null>(null);
-
 const Wrapper = styled.section`
   position: relative;
   padding: 6rem 0;
@@ -60,9 +49,7 @@ const Title = styled.h1`
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 5rem;
-  font-family: "Montserrat";
-  font-weight: bold;
-  font-style: italic;
+  font-family: "SBAggroB";
 `;
 
 const DefaultProjectList = styled.div`
@@ -79,13 +66,13 @@ const ProjectListForMobile = styled(DefaultProjectList)`
 `;
 
 const Projects = () => {
-  const { isMobile } = useResponsive();
-  const ProjectList = isMobile ? ProjectListForMobile : ProjectListForPC;
+  const { isTablet } = useResponsive();
+  const ProjectList = isTablet ? ProjectListForMobile : ProjectListForPC;
 
   return (
     <Wrapper>
       <InnerContainer>
-        <Title>(Projects)</Title>
+        <Title>Project</Title>
 
         <ProjectList>
           {projectDatas.map((project) => (
@@ -98,78 +85,7 @@ const Projects = () => {
           ))}
         </ProjectList>
       </InnerContainer>
-
-      <ProjectCursor />
     </Wrapper>
-  );
-};
-
-const ProjectCursorWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-`;
-
-const ProjectCursor = () => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const currentProject = useAtomValue(curProject);
-
-  const hoverOnProject = currentProject !== null;
-
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  useEffect(() => {
-    if (currentProject) {
-      const translateXY = getTranslateXY()!;
-      x.set(translateXY.translateX);
-      y.set(translateXY.translateY);
-    }
-  }, [currentProject]);
-
-  function getTranslateXY() {
-    if (!ref.current || !hoverOnProject) {
-      return;
-    }
-
-    const wrapper = ref.current.getBoundingClientRect();
-    const translateX = currentProject.position.x - wrapper.x;
-    const translateY = currentProject.position.y - wrapper.y;
-
-    return { translateX, translateY };
-  }
-
-  return (
-    <ProjectCursorWrapper ref={ref}>
-      <AnimatePresence>
-        {hoverOnProject && (
-          <motion.div
-            style={{
-              backgroundColor: "black",
-              color: "white",
-              borderRadius: "2.5rem",
-              padding: "1rem 2rem",
-              width: "fit-content",
-              x,
-              y,
-              transform: "translate(-50%, -50%)",
-            }}
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            exit={{ opacity: 0, scaleX: 0 }}
-            transition={{
-              duration: 0.2,
-              delay: 0.1,
-            }}
-          >
-            {currentProject.name}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </ProjectCursorWrapper>
   );
 };
 

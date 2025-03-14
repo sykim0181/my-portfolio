@@ -72,11 +72,11 @@ const DescriptionWrapper = styled(Skeleton)`
 `;
 
 const ContentSkeleton = () => {
-  const { isMobile } = useResponsive();
+  const { isTablet } = useResponsive();
 
-  const Introduction = isMobile ? IntroductionForMobile : IntroductionForPC;
-  const ProjectImage = isMobile ? ProjectImageForMobile : ProjectImageForPC;
-  const BriefDescription = isMobile
+  const Introduction = isTablet ? IntroductionForMobile : IntroductionForPC;
+  const ProjectImage = isTablet ? ProjectImageForMobile : ProjectImageForPC;
+  const BriefDescription = isTablet
     ? BriefDescriptionForMobile
     : BriefDescriptionForCommon;
 

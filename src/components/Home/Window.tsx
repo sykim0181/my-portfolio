@@ -4,24 +4,26 @@ const Wrapper = styled.div`
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0px 10px 10px #7f7f7f;
-  width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const TitleBar = styled.div`
   border-radius: 10px 10px 0 0;
   background-color: #3a3a3a;
-  padding: 10px;
+  padding: 0.8rem;
 `;
 
 const TitleBarButtonContainer = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 0.8rem;
 `;
 
 const TitleBarButton = styled.div`
   background-color: #d2d2d2;
-  width: 12px;
-  height: 12px;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
 `;
 
@@ -29,13 +31,13 @@ const Content = styled.div`
   border-top: none;
   border-radius: 0 0 10px 10px;
   background-color: white;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 150px;
+  height: 14rem;
   font-family: "Galmuri14";
+  flex: 1;
 `;
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const Wrapper = styled.footer`
-  background-color: black;
-  color: white;
+  /* background-color: black;
+  color: white; */
 `;
 
 const Content = styled.div`

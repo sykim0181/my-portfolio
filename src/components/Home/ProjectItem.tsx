@@ -1,8 +1,15 @@
 import styled from "styled-components";
-import { useSetAtom } from "jotai";
 import { motion, Variants } from "motion/react";
+import { useSetAtom } from "jotai";
+import { cursorTextAtom, cursorTypeAtom } from "../../atoms/cursorAtom";
 
-import { curProject } from "./Projects";
+const Wrapper = styled(motion.div)`
+  border-radius: 10px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  box-shadow: 0px 10px 20px #9e9e9e;
+`;
 
 const ProjectImg = styled.img`
   width: 100%;
@@ -23,47 +30,35 @@ interface Props {
 
 const ProjectItem = (props: Props) => {
   const { href, imgSrc, name } = props;
+  const setCursorType = useSetAtom(cursorTypeAtom);
+  const setCursorText = useSetAtom(cursorTextAtom);
 
-  const setCurProject = useSetAtom(curProject);
-
-  const onMouseMove = (e: React.MouseEvent) => {
-    setCurProject({
-      name,
-      position: {
-        x: e.clientX,
-        y: e.clientY,
-      },
-    });
+  const onMouseMove = () => {
+    setCursorType("project");
+    setCursorText(name);
   };
 
   const onMouseLeave = () => {
-    setCurProject(null);
+    setCursorType("default");
+    setCursorText("");
   };
 
   const variants: Variants = {
     offscreen: {
-      scale: 0.5
+      scale: 0.5,
     },
     onscreen: {
       scale: 1,
       transition: {
-        type: "spring"
-      }
-    }
-  }
+        type: "spring",
+      },
+    },
+  };
 
   return (
-    <motion.div
+    <Wrapper
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
-      style={{
-        borderRadius: "10px",
-        width: "100%",
-        aspectRatio: "1 / 1",
-        overflow: "hidden",
-        boxShadow: "0px 10px 20px #9e9e9e",
-        position: "relative",
-      }}
       initial="offscreen"
       whileInView="onscreen"
       variants={variants}
@@ -75,7 +70,7 @@ const ProjectItem = (props: Props) => {
           loading="lazy"
         />
       </a>
-    </motion.div>
+    </Wrapper>
   );
 };
 
