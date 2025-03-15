@@ -78,12 +78,12 @@ const skillData: Skill[] = [
   },
   {
     name: "supabase",
-    src: "/skills/supabase.png"
-  }, 
+    src: "/skills/supabase.png",
+  },
   {
     name: "Firebase",
-    src: "/skills/firebase.svg"
-  }
+    src: "/skills/firebase.svg",
+  },
 ];
 
 const Wrapper = styled.section`
@@ -177,10 +177,10 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
   const showName = () => setIsHover(true);
   const hideName = () => setIsHover(false);
 
-  const onTouch = () => setIsHover(prev => !prev);
+  const onTouch = () => setIsHover((prev) => !prev);
 
   return (
-    <SkillItemWrapper>
+    <SkillItemWrapper id="skills">
       <SkillImageWrapper
         onMouseEnter={showName}
         onMouseLeave={hideName}

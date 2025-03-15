@@ -78,7 +78,7 @@ const Projects = () => {
   const ProjectList = isTablet ? ProjectListForMobile : ProjectListForPC;
 
   return (
-    <Wrapper>
+    <Wrapper id="projects">
       <InnerContainer>
         <Title>Project</Title>
 

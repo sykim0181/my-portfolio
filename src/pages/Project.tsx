@@ -254,7 +254,7 @@ const Project = () => {
 
   return (
     <Wrapper>
-      <BackButton onClick={() => navigate("/")}>
+      <BackButton onClick={() => navigate("/#projects")}>
         <IoArrowBackOutline />
       </BackButton>
 

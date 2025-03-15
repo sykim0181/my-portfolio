@@ -101,7 +101,7 @@ const First = ({ ref }: FirstProps) => {
       : CommonIntroduction;
 
   return (
-    <Wrapper ref={ref} className="hide_scrollbar">
+    <Wrapper id="first" ref={ref} className="hide_scrollbar home_section">
       <InnerContainer>
         <HeadingContainer>
           <H1>Portfolio</H1>

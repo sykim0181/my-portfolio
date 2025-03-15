@@ -2,7 +2,7 @@ import styled from "styled-components";
 import useResponsive from "../../hooks/useResponsive";
 
 const Skeleton = styled.div`
-  background-color: #ebebeb;
+  background-color: white;
   border-radius: 15px;
 `;
 

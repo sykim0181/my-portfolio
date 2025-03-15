@@ -79,10 +79,10 @@ const About = ({ ref }: AboutProps) => {
   const Content = isTablet ? ContentForTablet : ContentForPC;
 
   return (
-    <Wrapper ref={ref} className="hide_scrollbar">
+    <Wrapper id="about" ref={ref} className="hide_scrollbar home_section">
       <AboutText>About</AboutText>
       <InnerContainer>
-        <AboutMe>
+        <AboutMe id="about_me">
           <Content>
             <Memoticon />
 
