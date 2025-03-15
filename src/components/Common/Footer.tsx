@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.footer`
-  /* background-color: black;
-  color: white; */
+  color: black;
 `;
 
 const Content = styled.div`
@@ -27,7 +26,6 @@ const Links = styled.div`
 
 const SocialLink = styled.a`
   position: relative;
-  color: white;
 
   &::after {
     content: "";
@@ -40,7 +38,7 @@ const SocialLink = styled.a`
 
   &:hover::after {
     width: 100%;
-    background-color: white;
+    background-color: black;
   }
 `;
 
@@ -64,7 +62,7 @@ const Footer = () => {
           </SocialLink>
         </Links>
 
-        <CopyRight>©2025 KimSoyeon. All Rights Reserved.</CopyRight>
+        <CopyRight>©2025 KimSoyeon</CopyRight>
       </Content>
     </Wrapper>
   );

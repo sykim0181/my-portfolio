@@ -13,6 +13,7 @@ const Container = styled.div`
 const Wrapper = styled(motion.div)`
   background-color: var(--primary-color);
   box-sizing: border-box;
+  pointer-events: none;
 `;
 
 const Cursor = () => {

@@ -32,7 +32,6 @@ const projectDatas: {
 
 const Wrapper = styled.section`
   position: relative;
-  padding: 6rem 0;
 `;
 
 const InnerContainer = styled.div`
@@ -45,11 +44,10 @@ const InnerContainer = styled.div`
   align-items: center;
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 5rem;
-  font-family: "SBAggroB";
 `;
 
 const DefaultProjectList = styled.div`

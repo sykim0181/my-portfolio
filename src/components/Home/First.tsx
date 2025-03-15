@@ -24,7 +24,8 @@ const InnerContainer = styled.div`
 const HeadingContainer = styled.div`
   flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   position: relative;
 `;
@@ -34,10 +35,22 @@ const CommonH1 = styled.h1`
   text-align: start;
   font-size: 15vw;
   font-family: "SBAggroB";
-  flex: 1;
 `;
 const H1ForPC = styled(CommonH1)`
   font-size: min(15vw, 8rem);
+`;
+
+const CommonGreeting = styled.h2`
+  font-weight: normal;
+`;
+const GreetingForPC = styled(CommonGreeting)`
+  font-size: 1.5rem;
+`;
+const GreetingForTablet = styled(CommonGreeting)`
+  font-size: 1.2rem;
+`;
+const GreetingForMobile = styled(CommonGreeting)`
+  font-size: 0.8rem;
 `;
 
 const Content = styled.div`
@@ -69,7 +82,7 @@ const IntroductionForMobile = styled(CommonIntroduction)`
   font-size: 0.8rem;
 `;
 
-const Name = styled.p`
+const Italic = styled.p`
   font-style: italic;
 `;
 
@@ -77,6 +90,11 @@ const First = () => {
   const { isMobile, isTablet } = useResponsive();
 
   const H1 = isTablet ? CommonH1 : H1ForPC;
+  const Greeting = isMobile
+    ? GreetingForMobile
+    : isTablet
+      ? GreetingForTablet
+      : GreetingForPC;
   const Introduction = isMobile
     ? IntroductionForMobile
     : isTablet
@@ -88,6 +106,7 @@ const First = () => {
       <InnerContainer>
         <HeadingContainer>
           <H1>Portfolio</H1>
+          <Greeting>안녕하세요, 프론트엔드 개발자 김소연입니다 :)</Greeting>
         </HeadingContainer>
         <Content>
           <Button>
@@ -96,8 +115,8 @@ const First = () => {
             />
           </Button>
           <Introduction>
-            <p>Frontend Developer</p>
-            <Name>Kim Soyeon</Name>
+            <p>Email</p>
+            <Italic>soyeon364@naver.com</Italic>
           </Introduction>
         </Content>
       </InnerContainer>
