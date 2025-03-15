@@ -9,6 +9,16 @@ const projectDatas: {
   href: string;
 }[] = [
   {
+    name: "GAIA Office 선 도형 기능 고도화",
+    href: "/project/5",
+    imgSrc: "/projects/advancing-connector.gif",
+  },
+  {
+    name: "GAIA Office 기능 유지 보수",
+    href: "/project/6",
+    imgSrc: "/projects/gaia-office.png",
+  },
+  {
     name: "music-archiving",
     href: "/project/1",
     imgSrc: "/projects/music-archiving.gif",
