@@ -48,6 +48,14 @@ button {
   cursor: pointer;
 }
 
+.hide_scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* font */
 @font-face {
   font-family: "PretenTard-Regular";

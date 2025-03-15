@@ -2,10 +2,13 @@ import styled from "styled-components";
 import { IoIosArrowRoundDown } from "react-icons/io";
 
 import useResponsive from "../../hooks/useResponsive";
+import { DivRefProps } from "../../types/interface";
 
 const Wrapper = styled.section`
   width: 100%;
   height: 100vh;
+  box-sizing: border-box;
+  overflow-y: scroll;
   background-color: white;
 `;
 
@@ -86,7 +89,9 @@ const Italic = styled.p`
   font-style: italic;
 `;
 
-const First = () => {
+interface FirstProps extends DivRefProps {}
+
+const First = ({ ref }: FirstProps) => {
   const { isMobile, isTablet } = useResponsive();
 
   const H1 = isTablet ? CommonH1 : H1ForPC;
@@ -102,7 +107,7 @@ const First = () => {
       : CommonIntroduction;
 
   return (
-    <Wrapper>
+    <Wrapper ref={ref} className="hide_scrollbar">
       <InnerContainer>
         <HeadingContainer>
           <H1>Portfolio</H1>

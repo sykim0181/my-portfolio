@@ -4,9 +4,13 @@ import { useState } from "react";
 import useResponsive from "../../hooks/useResponsive";
 import Skill from "./Skill";
 import Projects from "./Projects";
+import { DivRefProps } from "../../types/interface";
 
 const Wrapper = styled.section`
   padding: 6rem 0;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: scroll;
 `;
 
 const InnerContainer = styled.div`
@@ -61,13 +65,15 @@ const ContentForPC = styled(CommonContent)`
   gap: 10%;
 `;
 
-const About = () => {
+interface AboutProps extends DivRefProps {}
+
+const About = ({ ref }: AboutProps) => {
   const { isTablet } = useResponsive();
 
   const Content = isTablet ? ContentForTablet : ContentForPC;
 
   return (
-    <Wrapper>
+    <Wrapper ref={ref} className="hide_scrollbar">
       <InnerContainer>
         <AboutMe>
           <Title>About Me</Title>

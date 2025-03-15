@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import { DivRefProps } from "../../types/interface";
 
 const Wrapper = styled.section`
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: scroll;
   background-color: black;
   color: white;
   position: relative;
-  overflow: hidden;
   padding-top: 8rem;
   padding-bottom: 6rem;
 `;
@@ -65,9 +68,11 @@ const ContentDescription = styled.p`
   color: #c8c8c8;
 `;
 
-const Profile = () => {
+interface ProfileProps extends DivRefProps {}
+
+const Profile = ({ ref }: ProfileProps) => {
   return (
-    <Wrapper>
+    <Wrapper ref={ref} className="hide_scrollbar">
       <ProfileText>PROFILE</ProfileText>
 
       <InnerContainer>
