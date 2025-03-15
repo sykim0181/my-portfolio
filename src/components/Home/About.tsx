@@ -36,14 +36,17 @@ const InnerContainer = styled.div`
 const AboutMe = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 `;
 
-const Items = styled.div`
+const CommonItems = styled.div`
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+`;
+const ItemsForPC = styled(CommonItems)`
+  width: 60%;
+  justify-content: center;
 `;
 
 const ContentItemTitleContainer = styled.div`
@@ -51,13 +54,25 @@ const ContentItemTitleContainer = styled.div`
   gap: 0.5rem;
   align-items: center;
 `;
-const ContentItemTitle = styled.h2`
+
+const CommonContentItemTitle = styled.p`
+  font-weight: bold;
+`;
+const ContentItemTitleForOthers = styled(CommonContentItemTitle)`
   font-size: 1.5rem;
 `;
+const ContentItemTitleForMobile = styled(CommonContentItemTitle)`
+  font-size: 1.2rem;
+`;
 
-const ContentItemDescription = styled.p`
-  font-size: 1rem;
+const CommonContentItemDescription = styled.p`
   margin-top: 1rem;
+`;
+const ContentItemDescriptionForMobile = styled(CommonContentItemDescription)`
+  font-size: 1rem;
+`;
+const ContentItemDescriptionForOthers = styled(CommonContentItemDescription)`
+  font-size: 1.2rem;
 `;
 
 const CommonContent = styled.div`
@@ -68,15 +83,23 @@ const ContentForTablet = styled(CommonContent)`
 `;
 const ContentForPC = styled(CommonContent)`
   flex-direction: row;
-  gap: 10%;
+  justify-content: space-between;
 `;
 
 interface AboutProps extends DivRefProps {}
 
 const About = ({ ref }: AboutProps) => {
-  const { isTablet } = useResponsive();
+  const { isMobile, isTablet } = useResponsive();
+
+  const Items = isTablet ? CommonItems : ItemsForPC;
 
   const Content = isTablet ? ContentForTablet : ContentForPC;
+  const ContentItemTitle = isMobile
+    ? ContentItemTitleForMobile
+    : ContentItemTitleForOthers;
+  const ContentItemDescription = isMobile
+    ? ContentItemDescriptionForMobile
+    : ContentItemDescriptionForOthers;
 
   return (
     <Wrapper id="about" ref={ref} className="hide_scrollbar home_section">
@@ -90,20 +113,25 @@ const About = ({ ref }: AboutProps) => {
               <div>
                 <ContentItemTitleContainer>
                   <FaStarOfLife color="#f68eab" />
-                  <ContentItemTitle>타이틀 1</ContentItemTitle>
+                  <ContentItemTitle>
+                    끈기와 성실함이 무기인 개발자
+                  </ContentItemTitle>
                 </ContentItemTitleContainer>
 
-                <ContentItemDescription>설명 1</ContentItemDescription>
+                <ContentItemDescription>
+                  주어진 문제를 끈질기게 파고들어 해결합니다.<br/>
+                  모든 과제에 최선을 다하는 태도로 빠른 적응과 성장을 이루어 냅니다.
+                </ContentItemDescription>
               </div>
 
-              <div>
+              {/* <div>
                 <ContentItemTitleContainer>
                   <FaStarOfLife color="#f68eab" />
                   <ContentItemTitle>타이틀 2</ContentItemTitle>
                 </ContentItemTitleContainer>
 
                 <ContentItemDescription>설명 2</ContentItemDescription>
-              </div>
+              </div> */}
             </Items>
           </Content>
         </AboutMe>
@@ -116,23 +144,36 @@ const About = ({ ref }: AboutProps) => {
   );
 };
 
-const ImgForPC = styled.img`
+const CommonMemoticonWrapper = styled.div`
+  aspect-ratio: 1 / 1;
+`;
+const MemoticonWrapperForPC = styled(CommonMemoticonWrapper)`
   width: 30%;
 `;
-const ImgForTablet = styled.img`
+const MemoticonWrapperForTablet = styled(CommonMemoticonWrapper)`
   width: 40%;
   margin: 0 auto;
 `;
-const ImgForMobile = styled.img`
+const MemoticonWrapperForMobile = styled(CommonMemoticonWrapper)`
   width: 60%;
   margin: 0 auto;
+`;
+
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 `;
 
 const Memoticon = () => {
   const [isHover, setIsHover] = useState(false);
 
   const { isMobile, isTablet } = useResponsive();
-  const Img = isMobile ? ImgForMobile : isTablet ? ImgForTablet : ImgForPC;
+  const MemoticonWrapper = isMobile
+    ? MemoticonWrapperForMobile
+    : isTablet
+      ? MemoticonWrapperForTablet
+      : MemoticonWrapperForPC;
 
   const onMouseEnter = () => setIsHover(true);
   const onMouseLeave = () => setIsHover(false);
@@ -142,7 +183,9 @@ const Memoticon = () => {
     : "/home/memoticon_smiling.png";
 
   return (
-    <Img src={src} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />
+    <MemoticonWrapper onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+      <Img src={src} />
+    </MemoticonWrapper>
   );
 };
 
