@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useResponsive from "../../hooks/useResponsive";
 
 const Wrapper = styled.footer`
   color: black;
@@ -47,22 +48,51 @@ const CopyRight = styled.span`
   text-align: right;
 `;
 
+const LeftWrapperForMobile = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+`;
+
 const Footer = () => {
+  const { isMobile } = useResponsive();
+
+  const ContactElement = () => <Contact>soyeon364@naver.com</Contact>;
+
+  const LinksElement = () => (
+    <Links>
+      <SocialLink href="https://github.com/sykim0181" target="_blank">
+        Github
+      </SocialLink>
+      <SocialLink href="https://sy-it.tistory.com/" target="_blank">
+        Blog
+      </SocialLink>
+    </Links>
+  );
+
+  const CopyrightElement = () => (
+    <CopyRight>©2025 KimSoyeon</CopyRight>
+  );
+
   return (
     <Wrapper>
       <Content>
-        <Contact>soyeon364@naver.com</Contact>
-
-        <Links>
-          <SocialLink href="https://github.com/sykim0181" target="_blank">
-            Github
-          </SocialLink>
-          <SocialLink href="https://sy-it.tistory.com/" target="_blank">
-            Blog
-          </SocialLink>
-        </Links>
-
-        <CopyRight>©2025 KimSoyeon</CopyRight>
+        {isMobile ? (
+          <>
+            <LeftWrapperForMobile>
+              <ContactElement />
+              <LinksElement />
+            </LeftWrapperForMobile>
+            <CopyrightElement />
+          </>
+        ) : (
+          <>
+            <ContactElement />
+            <LinksElement />
+            <CopyrightElement />
+          </>
+        )}
       </Content>
     </Wrapper>
   );
