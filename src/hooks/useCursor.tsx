@@ -18,15 +18,23 @@ const useCursor = () => {
   const cursorText = useAtomValue(cursorTextAtom);
   const ref = useRef<HTMLDivElement>(null); // cursor
 
+  const throttle = useRef<boolean>(false);
+
   useEffect(() => {
     const eventHandler = (e: MouseEvent) => {
-      const width = ref.current?.getBoundingClientRect().width ?? 0;
-      const height = ref.current?.getBoundingClientRect().height ?? 0;
+      if (throttle.current) {
+        return;
+      }
+
+      throttle.current = true;
       setTimeout(() => {
+        const width = ref.current?.getBoundingClientRect().width ?? 0;
+        const height = ref.current?.getBoundingClientRect().height ?? 0;
         setCursorPosition({
           x: e.clientX - width / 2,
           y: e.clientY - height / 2,
         });
+        throttle.current = false;
       }, delay);
     };
 
