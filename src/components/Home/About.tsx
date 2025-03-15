@@ -11,6 +11,17 @@ const Wrapper = styled.section`
   height: 100vh;
   box-sizing: border-box;
   overflow-y: scroll;
+  position: relative;
+`;
+
+const AboutText = styled.h2`
+  color: white;
+  font-family: "PartialSansKR-Regular";
+  font-size: min(15vw, 8rem);
+  font-weight: normal;
+  line-height: min(15vw, 8rem);
+  position: absolute;
+  top: max(-5vw, -1rem);
 `;
 
 const InnerContainer = styled.div`
@@ -26,11 +37,6 @@ const AboutMe = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-`;
-
-const Title = styled.h2`
-  font-size: 2.5rem;
-  text-align: center;
 `;
 
 const Items = styled.div`
@@ -74,10 +80,9 @@ const About = ({ ref }: AboutProps) => {
 
   return (
     <Wrapper ref={ref} className="hide_scrollbar">
+      <AboutText>About</AboutText>
       <InnerContainer>
         <AboutMe>
-          <Title>About Me</Title>
-
           <Content>
             <Memoticon />
 

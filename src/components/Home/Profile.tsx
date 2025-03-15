@@ -56,16 +56,16 @@ const ItemContainer = styled.div`
 
 const Period = styled.p`
   text-align: end;
-  font-weight: bold;
 `;
 
 const ContentTitle = styled.p`
+  font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 `;
 
 const ContentDescription = styled.p`
-  color: #c8c8c8;
+  color: #ffffff;
 `;
 
 interface ProfileProps extends DivRefProps {}
@@ -73,7 +73,7 @@ interface ProfileProps extends DivRefProps {}
 const Profile = ({ ref }: ProfileProps) => {
   return (
     <Wrapper ref={ref} className="hide_scrollbar">
-      <ProfileText>PROFILE</ProfileText>
+      <ProfileText>Profile</ProfileText>
 
       <InnerContainer>
         <section>
@@ -82,9 +82,9 @@ const Profile = ({ ref }: ProfileProps) => {
             <ItemContainer>
               <Period>2024.04 - 2025.02</Period>
               <div>
-                <ContentTitle>티맥스 가이아</ContentTitle>
+                <ContentTitle>(주)티맥스가이아</ContentTitle>
                 <ContentDescription>
-                  문서 중심의 협업 플랫폼 GAIA Docs의 오피스(문서 편집 도구)
+                  문서 협업 플랫폼 GAIA Docs의 오피스(문서 편집 앱)
                   개발 연구원
                   <br />
                   프레젠테이션(Point), 도형 관련 기능 개발 및 유지 보수

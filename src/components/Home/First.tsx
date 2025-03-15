@@ -64,12 +64,6 @@ const Content = styled.div`
   padding: 2rem 0;
 `;
 
-const Button = styled.button`
-  height: fit-content;
-  margin: 0;
-  padding: 0;
-`;
-
 const CommonIntroduction = styled.div`
   display: flex;
   gap: 1rem;
@@ -114,11 +108,9 @@ const First = ({ ref }: FirstProps) => {
           <Greeting>안녕하세요, 프론트엔드 개발자 김소연입니다 :)</Greeting>
         </HeadingContainer>
         <Content>
-          <Button>
-            <IoIosArrowRoundDown
-              size={isMobile ? "3rem" : isTablet ? "3.5rem" : "5rem"}
-            />
-          </Button>
+          <IoIosArrowRoundDown
+            size={isMobile ? "3rem" : isTablet ? "3.5rem" : "5rem"}
+          />
           <Introduction>
             <p>Email</p>
             <Italic>soyeon364@naver.com</Italic>
