@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { motion, MotionProps } from "motion/react";
 import useResponsive from "../../hooks/useResponsive";
+import { appearMotionProps } from "../../constants/motionConfig";
 
 type Skill = {
   name: string;
@@ -86,7 +88,7 @@ const skillData: Skill[] = [
   },
 ];
 
-const Wrapper = styled.section`
+const Wrapper = styled(motion.section)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,9 +99,17 @@ const Title = styled.h2`
   font-size: 2.5rem;
 `;
 
+const WrapperMotionProps: MotionProps = {
+  ...appearMotionProps,
+  transition: {
+    ...appearMotionProps["transition"],
+    delay: 0.5,
+  },
+};
+
 const Skill = () => {
   return (
-    <Wrapper>
+    <Wrapper {...WrapperMotionProps}>
       <Title>Skill</Title>
       <SkillList />
     </Wrapper>

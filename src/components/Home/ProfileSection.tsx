@@ -1,5 +1,7 @@
 import styled from "styled-components";
+import { motion } from "motion/react";
 import { DivRefProps } from "../../types/interface";
+import { appearMotionProps } from "../../constants/motionConfig";
 
 const Wrapper = styled.section`
   height: 100vh;
@@ -12,7 +14,7 @@ const Wrapper = styled.section`
   padding-bottom: 6rem;
 `;
 
-const ProfileText = styled.h2`
+const ProfileText = styled(motion.h2)`
   color: white;
   font-family: "PartialSansKR-Regular";
   font-size: min(15vw, 8rem);
@@ -70,13 +72,13 @@ const ContentDescription = styled.p`
 
 interface ProfileProps extends DivRefProps {}
 
-const Profile = ({ ref }: ProfileProps) => {
+const ProfileSection = ({ ref }: ProfileProps) => {
   return (
     <Wrapper id="profile" ref={ref} className="hide_scrollbar home_section">
-      <ProfileText>Profile</ProfileText>
+      <ProfileText {...appearMotionProps}>Profile</ProfileText>
 
       <InnerContainer>
-        <section>
+        <Section>
           <SectionTitle>(Career)</SectionTitle>
           <ContentContainer>
             <ItemContainer>
@@ -91,9 +93,9 @@ const Profile = ({ ref }: ProfileProps) => {
               </div>
             </ItemContainer>
           </ContentContainer>
-        </section>
+        </Section>
 
-        <section>
+        <Section>
           <SectionTitle>(Education)</SectionTitle>
           <ContentContainer>
             <ItemContainer>
@@ -104,9 +106,9 @@ const Profile = ({ ref }: ProfileProps) => {
               </div>
             </ItemContainer>
           </ContentContainer>
-        </section>
+        </Section>
 
-        <section>
+        <Section>
           <SectionTitle>(etc.)</SectionTitle>
           <ContentContainer>
             <ItemContainer>
@@ -124,10 +126,14 @@ const Profile = ({ ref }: ProfileProps) => {
               </div>
             </ItemContainer>
           </ContentContainer>
-        </section>
+        </Section>
       </InnerContainer>
     </Wrapper>
   );
 };
 
-export default Profile;
+const Section = ({ children }: { children: React.ReactNode }) => (
+  <motion.section {...appearMotionProps}>{children}</motion.section>
+);
+
+export default ProfileSection;

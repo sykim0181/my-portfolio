@@ -20,17 +20,27 @@ const Cursor = () => {
   const { x, y, ref, type, text } = useCursor();
 
   const style: MotionStyle =
-    type === "default"
+    type === "none"
       ? {
-          width: "3rem",
-          height: "3rem",
+          width: 0,
+          height: 0,
         }
-      : {
-          width: "fit-content",
-          height: "fit-content",
-        };
+      : type === "default"
+        ? {
+            width: "3rem",
+            height: "3rem",
+          }
+        : {
+            width: "fit-content",
+            height: "fit-content",
+          };
 
   const variants: Variants = {
+    none: {
+      opacity: 0,
+      x,
+      y,
+    },
     default: {
       opacity: 0.5,
       borderRadius: "50%",

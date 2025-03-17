@@ -1,9 +1,10 @@
-import First from "../components/Home/First";
-import About from "../components/Home/About";
-import Profile from "../components/Home/Profile";
+import FirstSection from "../components/Home/FirstSection";
+import AboutSection from "../components/Home/AboutSection";
+import ProfileSection from "../components/Home/ProfileSection";
+import LastSection from "../components/Home/LastSection";
 import useScrollHome from "../hooks/useScrollHome";
 
-const sections = [First, About, Profile];
+const sections = [FirstSection, AboutSection, ProfileSection, LastSection];
 
 const Home = () => {
   const { Sections } = useScrollHome({ sections });

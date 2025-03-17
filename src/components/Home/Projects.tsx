@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import ProjectItem from "./ProjectItem";
 import useResponsive from "../../hooks/useResponsive";
+import { motion } from "motion/react";
+import { appearMotionProps } from "../../constants/motionConfig";
 
 const projectDatas: {
   name: string;
@@ -45,7 +47,7 @@ const projectDatas: {
   },
 ];
 
-const Wrapper = styled.section`
+const Wrapper = styled(motion.section)`
   position: relative;
 `;
 
@@ -83,7 +85,7 @@ const Projects = () => {
   const ProjectList = isTablet ? ProjectListForMobile : ProjectListForPC;
 
   return (
-    <Wrapper id="projects">
+    <Wrapper id="projects" {...appearMotionProps}>
       <InnerContainer>
         <Title>Project</Title>
 
