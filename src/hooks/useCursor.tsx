@@ -6,22 +6,48 @@ import {
   CursorType,
   cursorTypeAtom,
 } from "../atoms/cursorAtom";
+import { Position } from "../types/commonTypes";
 
 const delay = 100;
 
+type TCursor = {
+  type: CursorType;
+  position: Position;
+  text: string;
+};
+
 const useCursor = () => {
-  const [type, setType] = useState<CursorType>("default");
+  const [type, setType] = useState<CursorType>("none");
   const [text, setText] = useState<string>("");
+  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
 
   const [cursorPosition, setCursorPosition] = useAtom(cursorPositionAtom);
-  const cursorType = useAtomValue(cursorTypeAtom);
+  const [cursorType, setCursorType] = useAtom(cursorTypeAtom);
   const cursorText = useAtomValue(cursorTextAtom);
-  const ref = useRef<HTMLDivElement>(null); // cursor
+  const ref = useRef<HTMLDivElement>(null); // cursor element
+
+  const cursor = useRef<TCursor>({
+    type,
+    text,
+    position: { x: 0, y: 0 },
+  });
 
   const throttle = useRef<boolean>(false);
 
   useEffect(() => {
+    cursor.current = {
+      type,
+      text,
+      position,
+    };
+  }, [type, text, position]);
+
+  useEffect(() => {
     const eventHandler = (e: MouseEvent) => {
+      if (cursor.current.type === "none") {
+        setCursorType("default");
+      }
+
       if (throttle.current) {
         return;
       }
@@ -35,7 +61,7 @@ const useCursor = () => {
           y: e.clientY - height / 2,
         });
         throttle.current = false;
-      }, delay);
+      }, 100);
     };
 
     window.addEventListener("mousemove", eventHandler);
@@ -48,14 +74,10 @@ const useCursor = () => {
   useEffect(() => {
     setTimeout(() => {
       setType(cursorType);
-    }, delay);
-  }, [cursorType]);
-
-  useEffect(() => {
-    setTimeout(() => {
       setText(cursorText);
+      setPosition(cursorPosition);
     }, delay);
-  }, [cursorText]);
+  }, [cursorType, cursorText, cursorPosition]);
 
   return {
     ref,
