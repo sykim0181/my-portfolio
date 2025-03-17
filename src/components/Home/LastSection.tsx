@@ -64,9 +64,9 @@ interface LastProps extends DivRefProps {}
 
 const LastSection = ({ ref }: LastProps) => {
   return (
-    <Wrapper ref={ref}>
+    <Wrapper ref={ref} id="last" className="home_section">
       <InnerContainer>
-        <MessageContainer>THANK YOU</MessageContainer>
+        <MessageContainer>Thank You</MessageContainer>
         <ContactContainer>
           <p>soyeon364@naver.com</p>
           <SocialLinks>
