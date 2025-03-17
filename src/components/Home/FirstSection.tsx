@@ -85,7 +85,7 @@ const Italic = styled.p`
 
 interface FirstProps extends DivRefProps {}
 
-const First = ({ ref }: FirstProps) => {
+const FirstSection = ({ ref }: FirstProps) => {
   const { isMobile, isTablet } = useResponsive();
 
   const H1 = isTablet ? CommonH1 : H1ForPC;
@@ -121,4 +121,4 @@ const First = ({ ref }: FirstProps) => {
   );
 };
 
-export default First;
+export default FirstSection;

@@ -62,7 +62,7 @@ const Copyright = styled.p`
 
 interface LastProps extends DivRefProps {}
 
-const Last = ({ ref }: LastProps) => {
+const LastSection = ({ ref }: LastProps) => {
   return (
     <Wrapper ref={ref}>
       <InnerContainer>
@@ -84,4 +84,4 @@ const Last = ({ ref }: LastProps) => {
   );
 };
 
-export default Last;
+export default LastSection;

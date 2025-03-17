@@ -35,7 +35,7 @@ const InnerContainer = styled.div`
 
 interface AboutProps extends DivRefProps {}
 
-const About = ({ ref }: AboutProps) => {
+const AboutSection = ({ ref }: AboutProps) => {
   return (
     <Wrapper id="about" ref={ref} className="hide_scrollbar home_section">
       <AboutText {...appearMotionProps}>About</AboutText>
@@ -48,4 +48,4 @@ const About = ({ ref }: AboutProps) => {
   );
 };
 
-export default About;
+export default AboutSection;

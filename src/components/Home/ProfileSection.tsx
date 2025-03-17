@@ -72,7 +72,7 @@ const ContentDescription = styled.p`
 
 interface ProfileProps extends DivRefProps {}
 
-const Profile = ({ ref }: ProfileProps) => {
+const ProfileSection = ({ ref }: ProfileProps) => {
   return (
     <Wrapper id="profile" ref={ref} className="hide_scrollbar home_section">
       <ProfileText {...appearMotionProps}>Profile</ProfileText>
@@ -136,4 +136,4 @@ const Section = ({ children }: { children: React.ReactNode }) => (
   <motion.section {...appearMotionProps}>{children}</motion.section>
 );
 
-export default Profile;
+export default ProfileSection;
