@@ -4,6 +4,7 @@ import styled from "styled-components";
 import RootErrorBoundary from "../components/Common/RootErrorBoundary";
 import Cursor from "../components/Common/Cursor";
 import ScrollTo from "../components/Common/ScrollTo";
+import RootModal from "../components/Common/RootModal";
 
 const Wrapper = styled.div`
   flex-grow: 1;
@@ -13,13 +14,14 @@ const Wrapper = styled.div`
 
 const MainLayout = () => {
   return (
-    <>
+    <>      
       <RootErrorBoundary>
-        <Wrapper>
+        <Wrapper id="content-root">
           <Outlet />
         </Wrapper>
       </RootErrorBoundary>
 
+      <RootModal />
       <Cursor />
       <ScrollTo />
     </>

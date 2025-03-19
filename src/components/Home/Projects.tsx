@@ -1,48 +1,47 @@
 import styled from "styled-components";
-
+import { motion } from "motion/react";
 import ProjectItem from "./ProjectItem";
 import useResponsive from "../../hooks/useResponsive";
-import { motion } from "motion/react";
 import { appearMotionProps } from "../../constants/motionConfig";
 
 const projectDatas: {
+  id: number;
   name: string;
   imgSrc: string;
-  href: string;
 }[] = [
   {
+    id: 7,
     name: "포트폴리오",
-    href: "/project/7",
-    imgSrc: "/projects/my-portfolio.png"
+    imgSrc: "/projects/my-portfolio.png",
   },
   {
+    id: 5,
     name: "GAIA Office 선 도형 기능 고도화",
-    href: "/project/5",
     imgSrc: "/projects/advancing-connector.gif",
   },
   {
+    id: 6,
     name: "GAIA Office 기능 유지 보수",
-    href: "/project/6",
     imgSrc: "/projects/gaia-office.png",
   },
   {
+    id: 1,
     name: "music-archiving",
-    href: "/project/1",
     imgSrc: "/projects/music-archiving.gif",
   },
   {
+    id: 2,
     name: "XSO - e-commerce",
-    href: "/project/2",
     imgSrc: "/projects/xso.webp",
   },
   {
+    id: 3,
     name: "Aiku",
-    href: "/project/3",
     imgSrc: "/projects/aiku.webp",
   },
   {
+    id: 4,
     name: "SyncSchedule",
-    href: "/project/4",
     imgSrc: "/projects/sync-schedule.webp",
   },
 ];
@@ -93,9 +92,9 @@ const Projects = () => {
           {projectDatas.map((project) => (
             <ProjectItem
               key={project.name}
+              id={project.id}
               name={project.name}
               imgSrc={project.imgSrc}
-              href={project.href}
             />
           ))}
         </ProjectList>

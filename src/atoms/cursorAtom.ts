@@ -3,10 +3,7 @@ import { Position } from "../types/commonTypes";
 
 export type CursorType = "default" | "project" | "none";
 
-export const cursorPositionAtom = atom<Position>({
-  x: 0,
-  y: 0,
-});
+export const cursorPositionAtom = atom<Position | null>(null);
 
 export const cursorTypeAtom = atom<CursorType>("none");
 
