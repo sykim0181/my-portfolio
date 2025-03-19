@@ -2,24 +2,17 @@ import styled from "styled-components";
 import useResponsive from "../../hooks/useResponsive";
 
 const Skeleton = styled.div`
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(206, 206, 206, 0.5);
   border-radius: 15px;
-`;
-
-const ProjectName = styled(Skeleton)`
-  height: 2rem;
-  width: 100%;
 `;
 
 const IntroductionForCommon = styled.div`
   display: flex;
 `;
-
 const IntroductionForPC = styled(IntroductionForCommon)`
   flex-direction: row;
   gap: 1rem;
 `;
-
 const IntroductionForMobile = styled(IntroductionForCommon)`
   flex-direction: column;
 `;
@@ -27,11 +20,9 @@ const IntroductionForMobile = styled(IntroductionForCommon)`
 const ProjectImageForCommon = styled(Skeleton)`
   height: 300px;
 `;
-
 const ProjectImageForPC = styled(ProjectImageForCommon)`
   flex: 1;
 `;
-
 const ProjectImageForMobile = styled(ProjectImageForCommon)`
   width: 100%;
 `;
@@ -42,7 +33,6 @@ const BriefDescriptionForCommon = styled.div`
   gap: 1rem;
   flex: 1;
 `;
-
 const BriefDescriptionForMobile = styled(BriefDescriptionForCommon)`
   margin-top: 1rem;
 `;
@@ -71,7 +61,7 @@ const DescriptionWrapper = styled(Skeleton)`
   height: 2rem;
 `;
 
-const ContentSkeleton = () => {
+const ProjectModalContentSkeleton = () => {
   const { isTablet } = useResponsive();
 
   const Introduction = isTablet ? IntroductionForMobile : IntroductionForPC;
@@ -82,7 +72,6 @@ const ContentSkeleton = () => {
 
   return (
     <>
-      <ProjectName />
       <Introduction>
         <ProjectImage />
         <BriefDescription>
@@ -100,4 +89,4 @@ const ContentSkeleton = () => {
   );
 };
 
-export default ContentSkeleton;
+export default ProjectModalContentSkeleton;

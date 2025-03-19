@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { motion, MotionStyle, Variants } from "motion/react";
 import styled from "styled-components";
 import useCursor from "../../hooks/useCursor";
@@ -19,21 +20,30 @@ const Wrapper = styled(motion.div)`
 const Cursor = () => {
   const { x, y, ref, type, text } = useCursor();
 
-  const style: MotionStyle =
-    type === "none"
-      ? {
+  const variant = x === undefined || y === undefined ? "none" : type;
+
+  const style: MotionStyle = useMemo(() => {
+    switch (type) {
+      case "none": {
+        return {
           width: 0,
           height: 0,
-        }
-      : type === "default"
-        ? {
-            width: "3rem",
-            height: "3rem",
-          }
-        : {
-            width: "fit-content",
-            height: "fit-content",
-          };
+        };
+      }
+      case "default": {
+        return {
+          width: "3rem",
+          height: "3rem",
+        };
+      }
+      default: {
+        return {
+          width: "fit-content",
+          height: "fit-content",
+        };
+      }
+    }
+  }, [type]);
 
   const variants: Variants = {
     none: {
@@ -65,8 +75,8 @@ const Cursor = () => {
   };
 
   return (
-    <Container>
-      <Wrapper ref={ref} variants={variants} animate={type} style={style}>
+    <Container id="container-cursor">
+      <Wrapper ref={ref} variants={variants} animate={variant} style={style}>
         {text}
       </Wrapper>
     </Container>

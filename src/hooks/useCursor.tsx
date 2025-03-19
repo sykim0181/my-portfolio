@@ -1,5 +1,6 @@
-import { useAtom, useAtomValue } from "jotai";
+import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
+import { useLocation, useSearchParams } from "react-router";
 import {
   cursorPositionAtom,
   cursorTextAtom,
@@ -12,25 +13,41 @@ const delay = 100;
 
 type TCursor = {
   type: CursorType;
-  position: Position;
+  position: Position | null;
   text: string;
 };
 
 const useCursor = () => {
   const [type, setType] = useState<CursorType>("none");
   const [text, setText] = useState<string>("");
-  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
+  const [position, setPosition] = useState<Position | null>(null);
 
   const [cursorPosition, setCursorPosition] = useAtom(cursorPositionAtom);
   const [cursorType, setCursorType] = useAtom(cursorTypeAtom);
-  const cursorText = useAtomValue(cursorTextAtom);
+  const [cursorText, setCursorText] = useAtom(cursorTextAtom);
   const ref = useRef<HTMLDivElement>(null); // cursor element
 
   const cursor = useRef<TCursor>({
     type,
     text,
-    position: { x: 0, y: 0 },
+    position,
   });
+
+  const location = useLocation();
+  const [searchParams, _] = useSearchParams();
+
+  // 경로에 따른 커서 타입 지정
+  useEffect(() => {
+    if (searchParams.get("modal") !== null) {
+      setCursorType("none");
+      setCursorText("");
+    } else {
+      if (location.pathname === "/") {
+        setCursorType("default");
+        setCursorText("");
+      }
+    }
+  }, [location, searchParams]);
 
   const throttle = useRef<boolean>(false);
 
@@ -44,10 +61,6 @@ const useCursor = () => {
 
   useEffect(() => {
     const eventHandler = (e: MouseEvent) => {
-      if (cursor.current.type === "none") {
-        setCursorType("default");
-      }
-
       if (throttle.current) {
         return;
       }
@@ -81,8 +94,8 @@ const useCursor = () => {
 
   return {
     ref,
-    x: cursorPosition.x,
-    y: cursorPosition.y,
+    x: cursorPosition?.x,
+    y: cursorPosition?.y,
     type,
     text,
   };

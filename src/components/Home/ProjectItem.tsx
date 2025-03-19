@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { motion, Variants } from "motion/react";
 import { useSetAtom } from "jotai";
+import { useSearchParams } from "react-router";
 import { cursorTextAtom, cursorTypeAtom } from "../../atoms/cursorAtom";
 
 const Wrapper = styled(motion.div)`
@@ -9,6 +10,7 @@ const Wrapper = styled(motion.div)`
   aspect-ratio: 1 / 1;
   overflow: hidden;
   box-shadow: 0px 10px 20px #9e9e9e;
+  cursor: pointer;
 `;
 
 const ProjectImg = styled.img`
@@ -23,15 +25,26 @@ const ProjectImg = styled.img`
 `;
 
 interface Props {
-  href: string;
+  id: number;
   imgSrc: string;
   name: string;
 }
 
 const ProjectItem = (props: Props) => {
-  const { href, imgSrc, name } = props;
+  const { id, imgSrc, name } = props;
+
   const setCursorType = useSetAtom(cursorTypeAtom);
   const setCursorText = useSetAtom(cursorTextAtom);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const onClick = () => {
+    const params = new URLSearchParams();
+    params.set("modal", "project");
+    params.set("projectId", id.toString());
+
+    setSearchParams(params);
+  }
 
   const onMouseMove = () => {
     setCursorType("project");
@@ -39,8 +52,10 @@ const ProjectItem = (props: Props) => {
   };
 
   const onMouseLeave = () => {
-    setCursorType("default");
-    setCursorText("");
+    if (!searchParams.has("modal")) {
+      setCursorType("default");
+      setCursorText("");
+    }
   };
 
   const variants: Variants = {
@@ -57,19 +72,14 @@ const ProjectItem = (props: Props) => {
 
   return (
     <Wrapper
+      onClick={onClick}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       initial="offscreen"
       whileInView="onscreen"
       variants={variants}
     >
-      <a href={href}>
-        <ProjectImg
-          src={imgSrc}
-          alt={`프로젝트 ${name} 이미지`}
-          loading="lazy"
-        />
-      </a>
+      <ProjectImg src={imgSrc} alt={`프로젝트 ${name} 이미지`} loading="lazy" />
     </Wrapper>
   );
 };
