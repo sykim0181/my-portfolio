@@ -53,7 +53,7 @@ const RootModal = () => {
     const overlay = document.getElementById("modal-overlay");
     const wheelHandler = (e: WheelEvent) => {
       e.preventDefault();
-    } 
+    };
 
     if (!showModal) {
       closeModal();
@@ -63,7 +63,7 @@ const RootModal = () => {
 
     return () => {
       overlay?.removeEventListener("wheel", wheelHandler);
-    }
+    };
   }, [showModal]);
 
   const Modal = useMemo(() => {

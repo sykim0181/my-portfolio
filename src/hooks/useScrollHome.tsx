@@ -24,6 +24,8 @@ const useScrollHome = (props: useScrollHomeProps) => {
   );
 
   useEffect(() => {
+    const root = document.getElementById("content-root");
+
     const handler = (e: WheelEvent) => {
       const prevIndex = indexRef.current;
 
@@ -59,7 +61,7 @@ const useScrollHome = (props: useScrollHomeProps) => {
       }
       ref.current.scrollIntoView({ behavior: "smooth" });
     };
-    const root = document.getElementById("content-root");
+    
     root?.addEventListener("wheel", handler, { passive: false });
 
     return () => {
