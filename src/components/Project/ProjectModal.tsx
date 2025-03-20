@@ -37,7 +37,8 @@ const ProjectModal = (props: ProjectModalProps) => {
       const project = await getProject(projectId);
       return project;
     },
-    staleTime: 1000 * 60 * 10,
+    staleTime: 1000 * 60 * 5,
+    gcTime: 1000 * 60 * 30
   });
 
   return (
