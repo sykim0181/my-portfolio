@@ -59,10 +59,11 @@ const useScrollHome = (props: useScrollHomeProps) => {
       }
       ref.current.scrollIntoView({ behavior: "smooth" });
     };
-    window.addEventListener("wheel", handler, { passive: false });
+    const root = document.getElementById("content-root");
+    root?.addEventListener("wheel", handler, { passive: false });
 
     return () => {
-      window.removeEventListener("wheel", handler);
+      root?.removeEventListener("wheel", handler);
     };
   }, []);
 
