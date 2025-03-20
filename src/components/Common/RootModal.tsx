@@ -1,5 +1,5 @@
 import { AnimatePresence } from "motion/react";
-import { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router";
 import styled from "styled-components";
 import ProjectModal from "../Project/ProjectModal";
@@ -50,10 +50,21 @@ const RootModal = () => {
   };
 
   useEffect(() => {
+    const overlay = document.getElementById("modal-overlay");
+    const wheelHandler = (e: WheelEvent) => {
+      e.preventDefault();
+    };
+
     if (!showModal) {
       closeModal();
+    } else {
+      overlay?.addEventListener("wheel", wheelHandler, { passive: false });
     }
-  }, [modalType]);
+
+    return () => {
+      overlay?.removeEventListener("wheel", wheelHandler);
+    };
+  }, [showModal]);
 
   const Modal = useMemo(() => {
     switch (modalType) {
@@ -78,7 +89,7 @@ const RootModal = () => {
       <AnimatePresence>
         {showModal && (
           <>
-            <Overlay onClick={onClickOutsideModal} />
+            <Overlay id="modal-overlay" onClick={onClickOutsideModal} />
             {Modal}
           </>
         )}
