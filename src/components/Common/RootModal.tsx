@@ -1,5 +1,5 @@
 import { AnimatePresence } from "motion/react";
-import React, { useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router";
 import styled from "styled-components";
 import ProjectModal from "../Project/ProjectModal";
