@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "motion/react";
 import { DivRefProps } from "../../types/interface";
 
 const Wrapper = styled.section`
@@ -15,12 +16,14 @@ const InnerContainer = styled.div`
   grid-template-rows: 1fr 1fr 1fr;
 `;
 
-const MessageContainer = styled.div`
+const MessageContainer = styled(motion.div)`
   grid-row: 2 / 3;
   color: white;
   font-family: "PartialSansKR-Regular";
-  font-size: min(15vw, 8rem);
+  font-size: min(10vw, 8rem);
   text-align: center;
+  display: flex;
+  justify-content: center;
 `;
 
 const ContactContainer = styled.div`
@@ -63,10 +66,33 @@ const Copyright = styled.p`
 interface LastProps extends DivRefProps {}
 
 const LastSection = ({ ref }: LastProps) => {
+
+  const Message = Array.from("Thank You").map((char, index) => (
+    <motion.span
+      key={`message-${index}`}
+      initial={{
+        translateY: "100%",
+        rotateX: "-80deg",
+        opacity: 0,
+      }}
+      whileInView={{
+        translateY: "0",
+        rotateX: "0deg",
+        opacity: 1,
+      }}
+      transition={{
+        delay: 0.1 * index,
+        duration: 0.5,
+      }}
+    >
+      {char}
+    </motion.span>
+  ));
+
   return (
     <Wrapper ref={ref} id="last" className="home_section">
       <InnerContainer>
-        <MessageContainer>Thank You</MessageContainer>
+        <MessageContainer>{Message}</MessageContainer>
         <ContactContainer>
           <p>soyeon364@naver.com</p>
           <SocialLinks>
