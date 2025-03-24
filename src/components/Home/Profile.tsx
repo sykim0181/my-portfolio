@@ -1,27 +1,17 @@
 import styled from "styled-components";
 import { motion } from "motion/react";
-import { DivRefProps } from "../../types/interface";
 import { appearMotionProps } from "../../constants/motionConfig";
 
 const Wrapper = styled.section`
-  height: 100vh;
   box-sizing: border-box;
-  overflow-y: scroll;
-  background-color: black;
-  color: white;
   position: relative;
-  padding-top: 8rem;
-  padding-bottom: 6rem;
 `;
 
-const ProfileText = styled(motion.h2)`
-  color: white;
-  font-family: "PartialSansKR-Regular";
-  font-size: min(15vw, 8rem);
-  font-weight: normal;
-  line-height: min(15vw, 8rem);
-  position: absolute;
-  top: max(-5vw, -1rem);
+const Title = styled(motion.h2)`
+  font-size: 2.5rem;
+  font-family: "Montserrat";
+  text-align: center;
+  margin-bottom: 2rem;
 `;
 
 const InnerContainer = styled.div`
@@ -36,7 +26,6 @@ const InnerContainer = styled.div`
 
 const SectionTitle = styled.h3`
   width: 100%;
-  text-align: center;
   font-size: 2rem;
   font-family: "Montserrat";
   margin-bottom: 2rem;
@@ -66,20 +55,15 @@ const ContentTitle = styled.p`
   margin-bottom: 0.5rem;
 `;
 
-const ContentDescription = styled.p`
-  color: #ffffff;
-`;
+const ContentDescription = styled.p``;
 
-interface ProfileProps extends DivRefProps {}
-
-const ProfileSection = ({ ref }: ProfileProps) => {
+const Profile = () => {
   return (
-    <Wrapper id="profile" ref={ref} className="hide_scrollbar home_section">
-      <ProfileText {...appearMotionProps}>Profile</ProfileText>
-
+    <Wrapper id="profile" className="hide_scrollbar home_section">
+      <Title {...appearMotionProps}>Profile</Title>
       <InnerContainer>
         <Section>
-          <SectionTitle>(Career)</SectionTitle>
+          <SectionTitle>Career</SectionTitle>
           <ContentContainer>
             <ItemContainer>
               <Period>2024.04 - 2025.02</Period>
@@ -96,7 +80,7 @@ const ProfileSection = ({ ref }: ProfileProps) => {
         </Section>
 
         <Section>
-          <SectionTitle>(Education)</SectionTitle>
+          <SectionTitle>Education</SectionTitle>
           <ContentContainer>
             <ItemContainer>
               <Period>2019.03 - 2024.02</Period>
@@ -109,7 +93,7 @@ const ProfileSection = ({ ref }: ProfileProps) => {
         </Section>
 
         <Section>
-          <SectionTitle>(etc.)</SectionTitle>
+          <SectionTitle>etc.</SectionTitle>
           <ContentContainer>
             <ItemContainer>
               <Period>2022.09</Period>
@@ -136,4 +120,4 @@ const Section = ({ children }: { children: React.ReactNode }) => (
   <motion.section {...appearMotionProps}>{children}</motion.section>
 );
 
-export default ProfileSection;
+export default Profile;

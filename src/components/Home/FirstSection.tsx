@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { IoIosArrowRoundDown } from "react-icons/io";
-
 import useResponsive from "../../hooks/useResponsive";
-import { DivRefProps } from "../../types/interface";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -83,9 +81,7 @@ const Italic = styled.p`
   font-style: italic;
 `;
 
-interface FirstProps extends DivRefProps {}
-
-const FirstSection = ({ ref }: FirstProps) => {
+const FirstSection = () => {
   const { isMobile, isTablet } = useResponsive();
 
   const H1 = isTablet ? CommonH1 : H1ForPC;
@@ -101,7 +97,7 @@ const FirstSection = ({ ref }: FirstProps) => {
       : CommonIntroduction;
 
   return (
-    <Wrapper id="first" ref={ref} className="hide_scrollbar home_section">
+    <Wrapper id="first" className="hide_scrollbar home_section">
       <InnerContainer>
         <HeadingContainer>
           <H1>Portfolio</H1>
