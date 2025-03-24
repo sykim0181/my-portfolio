@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import { motion } from "motion/react";
 import Skill from "./Skill";
-import Projects from "./Projects";
 import AboutMe from "./AboutMe";
-import { DivRefProps } from "../../types/interface";
 import { appearMotionProps } from "../../constants/motionConfig";
+import Profile from "./Profile";
 
 const Wrapper = styled.section`
-  padding: 6rem 0;
+  padding: 2rem 0;
   height: 100vh;
   box-sizing: border-box;
   overflow-y: scroll;
@@ -17,11 +16,9 @@ const Wrapper = styled.section`
 const AboutText = styled(motion.h2)`
   color: white;
   font-family: "PartialSansKR-Regular";
-  font-size: min(15vw, 8rem);
+  font-size: min(15vw, 6rem);
   font-weight: normal;
-  line-height: min(15vw, 8rem);
-  position: absolute;
-  top: max(-5vw, -1rem);
+  margin-bottom: 2rem;
 `;
 
 const InnerContainer = styled.div`
@@ -33,16 +30,14 @@ const InnerContainer = styled.div`
   gap: 6rem;
 `;
 
-interface AboutProps extends DivRefProps {}
-
-const AboutSection = ({ ref }: AboutProps) => {
+const AboutSection = () => {
   return (
-    <Wrapper id="about" ref={ref} className="hide_scrollbar home_section">
+    <Wrapper id="about" className="hide_scrollbar home_section">
       <AboutText {...appearMotionProps}>About</AboutText>
       <InnerContainer>
         <AboutMe />
         <Skill />
-        <Projects />
+        <Profile />
       </InnerContainer>
     </Wrapper>
   );

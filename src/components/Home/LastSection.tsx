@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { motion } from "motion/react";
-import { DivRefProps } from "../../types/interface";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -63,10 +62,7 @@ const Copyright = styled.p`
   font-size: 0.8rem;
 `;
 
-interface LastProps extends DivRefProps {}
-
-const LastSection = ({ ref }: LastProps) => {
-
+const LastSection = () => {
   const Message = Array.from("Thank You").map((char, index) => (
     <motion.span
       key={`message-${index}`}
@@ -90,7 +86,7 @@ const LastSection = ({ ref }: LastProps) => {
   ));
 
   return (
-    <Wrapper ref={ref} id="last" className="home_section">
+    <Wrapper id="last" className="home_section">
       <InnerContainer>
         <MessageContainer>{Message}</MessageContainer>
         <ContactContainer>
