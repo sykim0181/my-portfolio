@@ -95,8 +95,15 @@ const Wrapper = styled(motion.section)`
   gap: 2rem;
 `;
 
-const Title = styled.h2`
+const Title = styled.h3`
   font-size: 2.5rem;
+`;
+
+const DescriptionForTablet = styled.p`
+  font-size: 1.2rem;
+`;
+const DescriptionForMobile = styled.p`
+  font-size: 1rem;
 `;
 
 const WrapperMotionProps: MotionProps = {
@@ -108,9 +115,14 @@ const WrapperMotionProps: MotionProps = {
 };
 
 const Skill = () => {
+  const { isMobile } = useResponsive();
+
+  const Description = isMobile ? DescriptionForMobile : DescriptionForTablet;
+
   return (
     <Wrapper {...WrapperMotionProps}>
       <Title>Skill</Title>
+      <Description>아래의 기술을 사용해본 경험이 있습니다.</Description>
       <SkillList />
     </Wrapper>
   );

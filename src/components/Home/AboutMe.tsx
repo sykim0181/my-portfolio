@@ -40,14 +40,14 @@ const ContentItemTitleForOthers = styled(CommonContentItemTitle)`
   font-size: 1.5rem;
 `;
 const ContentItemTitleForMobile = styled(CommonContentItemTitle)`
-  font-size: 1.2rem;
+  font-size: 1rem;
 `;
 
 const CommonContentItemDescription = styled.p`
   margin-top: 1rem;
 `;
 const ContentItemDescriptionForMobile = styled(CommonContentItemDescription)`
-  font-size: 1rem;
+  font-size: .9rem;
 `;
 const ContentItemDescriptionForOthers = styled(CommonContentItemDescription)`
   font-size: 1.2rem;
@@ -84,14 +84,16 @@ const AboutMe = () => {
           </ContentItemDescription>
         </div>
 
-        {/* <div>
+        <div>
           <ContentItemTitleContainer>
             <FaStarOfLife color="#f68eab" />
-            <ContentItemTitle>타이틀 2</ContentItemTitle>
+            <ContentItemTitle>성장을 위한 지속적 학습자</ContentItemTitle>
           </ContentItemTitleContainer>
 
-          <ContentItemDescription>설명 2</ContentItemDescription>
-        </div> */}
+          <ContentItemDescription>
+            새로운 기술에 도전하고 학습하며, 꾸준히 더 나은 개발자로 성장하겠습니다.
+          </ContentItemDescription>
+        </div>
       </Items>
     </Wrapper>
   )
