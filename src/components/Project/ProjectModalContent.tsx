@@ -161,13 +161,13 @@ const ProjectModalContent = (props: ProjectModalContentProps) => {
 };
 
 // ProjectImage 컴포넌트
-const CommonImageWrapper = styled.div`
+const ImageWrapperForTablet = styled.div`
   flex: 1;
   height: 300px;
 `;
-
-const ImageWrapperForMobile = styled(CommonImageWrapper)`
+const ImageWrapperForMobile = styled.div`
   width: 100%;
+  height: 200px;
 `;
 
 const Image = styled.img`
@@ -206,7 +206,7 @@ const ProjectImage = (props: ProjectImageProps) => {
   const [showImage, setShowImage] = useState(false);
   const { isMobile } = useResponsive();
 
-  const ImageWrapper = isMobile ? ImageWrapperForMobile : CommonImageWrapper;
+  const ImageWrapper = isMobile ? ImageWrapperForMobile : ImageWrapperForTablet;
 
   return (
     <>
