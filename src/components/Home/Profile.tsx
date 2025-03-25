@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { motion } from "motion/react";
 import { appearMotionProps } from "../../constants/motionConfig";
+import useResponsive from "../../hooks/useResponsive";
 
 const Wrapper = styled.section``;
 
@@ -35,14 +36,24 @@ const ContentContainer = styled.div`
   gap: 2rem;
 `;
 
-const ItemContainer = styled.div`
+const CommonItemContainer = styled.div``;
+const ItemContainerForTablet = styled(CommonItemContainer)`
   display: grid;
   grid-template-columns: 1fr 2fr;
   column-gap: 5rem;
 `;
+const ItemContainerForMobile = styled(CommonItemContainer)`
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+`;
 
-const Period = styled.p`
+const PeriodForTablet = styled.p`
   text-align: end;
+`;
+const PeriodForMobile = styled.p`
+  text-align: start;
+  font-size: .9rem;
 `;
 
 const ContentTitle = styled.p`
@@ -54,6 +65,11 @@ const ContentTitle = styled.p`
 const ContentDescription = styled.p``;
 
 const Profile = () => {
+  const { isMobile } = useResponsive();
+
+  const ItemContainer = isMobile ? ItemContainerForMobile : ItemContainerForTablet;
+  const Period = isMobile ? PeriodForMobile : PeriodForTablet;
+
   return (
     <Wrapper>
       <Title {...appearMotionProps}>Profile</Title>
