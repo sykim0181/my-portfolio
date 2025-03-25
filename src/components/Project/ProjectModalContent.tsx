@@ -182,7 +182,7 @@ const FullImageWrapper = styled.div<{ $show: boolean }>`
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background-color: rgba(235, 235, 235, 0.5);
   display: ${(props) => (props.$show ? "flex" : "none")};
   z-index: 10;

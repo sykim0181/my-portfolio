@@ -48,7 +48,7 @@ const projectDatas: {
 
 const Wrapper = styled(motion.section)`
   padding: 2rem 0;
-  height: 100vh;
+  height: 100dvh;
   box-sizing: border-box;
   overflow-y: scroll;
 `;
@@ -74,6 +74,7 @@ const Title = styled.h2`
 const DefaultProjectList = styled.div`
   display: grid;
   gap: min(10vw, 3rem);
+  width: 100%;
 `;
 
 const ProjectListForPC = styled(DefaultProjectList)`

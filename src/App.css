@@ -8,7 +8,7 @@
   --secondary-color: #f68eab;
 
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   background-color: #eaeaea;
@@ -46,6 +46,7 @@ button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
 .hide_scrollbar {

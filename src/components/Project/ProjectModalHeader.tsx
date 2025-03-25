@@ -37,6 +37,7 @@ const CommonModalButtons = styled.div`
 
   & button,
   & button a {
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;

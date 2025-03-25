@@ -7,7 +7,7 @@ import ProjectSection from "../components/Home/ProjectSection";
 
 const Wrapper = styled.div`
   overflow: hidden;
-  height: 100vh;
+  height: 100dvh;
   position: relative;
 `;
 

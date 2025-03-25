@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 const Wrapper = styled.section`
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
 `;
 
 const InnerContainer = styled.div`
