@@ -8,6 +8,7 @@ import {
   cursorTypeAtom,
 } from "../atoms/cursorAtom";
 import { Position } from "../types/commonTypes";
+import { checkIsMobile } from "../utils";
 
 const delay = 100;
 
@@ -61,6 +62,10 @@ const useCursor = () => {
 
   useEffect(() => {
     const eventHandler = (e: MouseEvent) => {
+      if (checkIsMobile()) {
+        return;
+      }
+
       if (throttle.current) {
         return;
       }
