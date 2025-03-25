@@ -2,12 +2,9 @@ import styled from "styled-components";
 import { motion } from "motion/react";
 import { appearMotionProps } from "../../constants/motionConfig";
 
-const Wrapper = styled.section`
-  box-sizing: border-box;
-  position: relative;
-`;
+const Wrapper = styled.section``;
 
-const Title = styled(motion.h2)`
+const Title = styled(motion.h3)`
   font-size: 2.5rem;
   font-family: "Montserrat";
   text-align: center;
@@ -18,13 +15,12 @@ const InnerContainer = styled.div`
   width: var(--default-width);
   max-width: var(--max-width);
   margin: 0 auto;
-
   display: flex;
   flex-direction: column;
   gap: 5rem;
 `;
 
-const SectionTitle = styled.h3`
+const SectionTitle = styled.h4`
   width: 100%;
   font-size: 2rem;
   font-family: "Montserrat";
@@ -59,7 +55,7 @@ const ContentDescription = styled.p``;
 
 const Profile = () => {
   return (
-    <Wrapper id="profile" className="hide_scrollbar home_section">
+    <Wrapper>
       <Title {...appearMotionProps}>Profile</Title>
       <InnerContainer>
         <Section>

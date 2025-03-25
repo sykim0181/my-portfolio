@@ -28,7 +28,11 @@ const ListItem = styled.li`
   justify-content: center;
 
   & a {
+    display: block;
+    width: 100%;
+    height: 100%;
     color: white;
+    text-align: center;
   }
 
   &:hover,
@@ -53,8 +57,8 @@ const Navigation = () => {
         <ListItem className={id === "projects" ? "selected" : undefined}>
           <NavLink to="/#projects">Project</NavLink>
         </ListItem>
-        <ListItem className={id === "last" ? "selected" : undefined}>
-          <NavLink to="/#last">Contact</NavLink>
+        <ListItem className={id === "navigation" ? "selected" : undefined}>
+          <NavLink to="/#contact">Contact</NavLink>
         </ListItem>
       </List>
     </Wrapper>

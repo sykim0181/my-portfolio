@@ -3,10 +3,6 @@ import { IoIosArrowRoundDown } from "react-icons/io";
 import useResponsive from "../../hooks/useResponsive";
 
 const Wrapper = styled.section`
-  width: 100%;
-  height: 100dvh;
-  box-sizing: border-box;
-  overflow-y: scroll;
   background-color: white;
 `;
 

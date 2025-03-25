@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import { motion } from "motion/react";
 
-const Wrapper = styled.section`
-  width: 100%;
-  height: 100dvh;
-`;
+const Wrapper = styled.section``;
 
 const InnerContainer = styled.div`
   width: var(--default-width);
@@ -86,7 +83,7 @@ const LastSection = () => {
   ));
 
   return (
-    <Wrapper id="last" className="home_section">
+    <Wrapper id="contact" className="home_section">
       <InnerContainer>
         <MessageContainer>{Message}</MessageContainer>
         <ContactContainer>

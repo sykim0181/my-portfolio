@@ -6,10 +6,7 @@ import { appearMotionProps } from "../../constants/motionConfig";
 import Profile from "./Profile";
 
 const Wrapper = styled.section`
-  padding: 2rem 0;
-  height: 100dvh;
-  box-sizing: border-box;
-  overflow-y: scroll;
+  padding: 3rem 0;
   position: relative;
 `;
 

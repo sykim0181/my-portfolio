@@ -46,11 +46,16 @@ const projectDatas: {
   },
 ];
 
-const Wrapper = styled(motion.section)`
-  padding: 2rem 0;
-  height: 100dvh;
-  box-sizing: border-box;
-  overflow-y: scroll;
+const Wrapper = styled.section`
+  padding: 3rem 0;
+`;
+
+const Title = styled(motion.h2)`
+  color: white;
+  font-family: "PartialSansKR-Regular";
+  font-size: min(15vw, 6rem);
+  font-weight: normal;
+  margin-bottom: 2rem;
 `;
 
 const InnerContainer = styled.div`
@@ -61,14 +66,6 @@ const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const Title = styled.h2`
-  color: white;
-  font-family: "PartialSansKR-Regular";
-  font-size: min(15vw, 6rem);
-  font-weight: normal;
-  margin-bottom: 2rem;
 `;
 
 const DefaultProjectList = styled.div`
@@ -90,8 +87,11 @@ const ProjectSection = () => {
   const ProjectList = isTablet ? ProjectListForMobile : ProjectListForPC;
 
   return (
-    <Wrapper id="projects" className="hide_scrollbar" {...appearMotionProps}>
-      <Title>Project</Title>
+    <Wrapper
+      id="projects"
+      className="hide_scrollbar home_section"
+    >
+      <Title {...appearMotionProps}>Project</Title>
       <InnerContainer>
         <ProjectList>
           {projectDatas.map((project) => (
