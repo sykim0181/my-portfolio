@@ -2,7 +2,9 @@ import styled from "styled-components";
 import { IoIosArrowRoundDown } from "react-icons/io";
 import useResponsive from "../../hooks/useResponsive";
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
   background-color: white;
 `;
 
@@ -93,7 +95,7 @@ const FirstSection = () => {
       : CommonIntroduction;
 
   return (
-    <Wrapper id="first" className="hide_scrollbar home_section">
+    <Wrapper>
       <InnerContainer>
         <HeadingContainer>
           <H1>Portfolio</H1>

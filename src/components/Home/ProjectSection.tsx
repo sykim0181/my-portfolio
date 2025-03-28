@@ -46,7 +46,9 @@ const projectDatas: {
   },
 ];
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
+  width: 100%;
+  box-sizing: border-box;
   padding: 3rem 0;
 `;
 
@@ -87,10 +89,7 @@ const ProjectSection = () => {
   const ProjectList = isTablet ? ProjectListForMobile : ProjectListForPC;
 
   return (
-    <Wrapper
-      id="projects"
-      className="hide_scrollbar home_section"
-    >
+    <Wrapper>
       <Title {...appearMotionProps}>Project</Title>
       <InnerContainer>
         <ProjectList>

@@ -5,7 +5,8 @@ import AboutMe from "./AboutMe";
 import { appearMotionProps } from "../../constants/motionConfig";
 import Profile from "./Profile";
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
+  width: 100%;
   padding: 3rem 0;
   position: relative;
 `;
@@ -29,7 +30,7 @@ const InnerContainer = styled.div`
 
 const AboutSection = () => {
   return (
-    <Wrapper id="about" className="hide_scrollbar home_section">
+    <Wrapper>
       <AboutText {...appearMotionProps}>About</AboutText>
       <InnerContainer>
         <AboutMe />
