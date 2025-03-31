@@ -1,27 +1,9 @@
-import styled from "styled-components";
+"use client";
+
 import { motion, Variants } from "motion/react";
 import { useSetAtom } from "jotai";
+import Link from "next/link";
 import { cursorTextAtom, cursorTypeAtom } from "../../atoms/cursorAtom";
-
-const Wrapper = styled(motion.div)`
-  border-radius: 10px;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  box-shadow: 0px 10px 20px #9e9e9e;
-  cursor: pointer;
-`;
-
-const ProjectImg = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: scale 0.3s linear;
-
-  &:hover {
-    scale: 1.1;
-  }
-`;
 
 interface Props {
   id: number;
@@ -35,16 +17,6 @@ const ProjectItem = (props: Props) => {
   const setCursorType = useSetAtom(cursorTypeAtom);
   const setCursorText = useSetAtom(cursorTextAtom);
 
-  // const [searchParams, setSearchParams] = useSearchParams();
-
-  const onClick = () => {
-    const params = new URLSearchParams();
-    // params.set("modal", "project");
-    // params.set("projectId", id.toString());
-
-    // setSearchParams(params);
-  }
-
   const onMouseMove = () => {
     setCursorType("project");
     setCursorText(name);
@@ -53,10 +25,6 @@ const ProjectItem = (props: Props) => {
   const onMouseLeave = () => {
     setCursorType("default");
     setCursorText("");
-    // if (!searchParams.has("modal")) {
-    //   setCursorType("default");
-    //   setCursorText("");
-    // }
   };
 
   const variants: Variants = {
@@ -72,16 +40,27 @@ const ProjectItem = (props: Props) => {
   };
 
   return (
-    <Wrapper
-      onClick={onClick}
+    <motion.div
+      className="w-full aspect-square rounded-[10px] overflow-hidden shadow-[0px_10px_20px_#9e9e9e] cursor-pointer"
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       initial="offscreen"
       whileInView="onscreen"
       variants={variants}
     >
-      <ProjectImg src={imgSrc} alt={`프로젝트 ${name} 이미지`} loading="lazy" />
-    </Wrapper>
+      <Link href={`/project/${id}`} className="block w-full h-full">
+        <motion.img
+          src={imgSrc}
+          alt={`프로젝트 ${name} 이미지`}
+          loading="lazy"
+          className="w-full h-full object-cover"
+          whileHover={{
+            scale: 1.1,
+            transition: { duration: 0.3 },
+          }}
+        />
+      </Link>
+    </motion.div>
   );
 };
 

@@ -1,66 +1,6 @@
-import styled from "styled-components";
+"use client";
+
 import { motion } from "motion/react";
-
-const Wrapper = styled.section`
-  width: 100%;
-  height: 100dvh;
-`;
-
-const InnerContainer = styled.div`
-  width: var(--default-width);
-  max-width: var(--max-width);
-  height: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-`;
-
-const MessageContainer = styled(motion.div)`
-  grid-row: 2 / 3;
-  color: white;
-  font-family: "PartialSansKR-Regular";
-  font-size: min(10vw, 8rem);
-  text-align: center;
-  display: flex;
-  justify-content: center;
-`;
-
-const ContactContainer = styled.div`
-  grid-row: 3 / 4;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-const SocialLinks = styled.div`
-  display: flex;
-  gap: 1rem;
-`;
-
-const SocialLink = styled.a`
-  position: relative;
-
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 1px;
-    width: 0;
-    transition: width 0.5s;
-  }
-
-  &:hover::after {
-    width: 100%;
-    background-color: black;
-  }
-`;
-
-const Copyright = styled.p`
-  color: #aeaeae;
-  font-size: 0.8rem;
-`;
 
 const LastSection = () => {
   const Message = Array.from("Thank You").map((char, index) => (
@@ -85,25 +25,37 @@ const LastSection = () => {
     </motion.span>
   ));
 
-  return (
-    <Wrapper id="contact">
-      <InnerContainer>
-        <MessageContainer>{Message}</MessageContainer>
-        <ContactContainer>
-          <p>soyeon364@naver.com</p>
-          <SocialLinks>
-            <SocialLink href="https://github.com/sykim0181" target="_blank">
-              Github
-            </SocialLink>
-            <SocialLink href="https://sy-it.tistory.com/" target="_blank">
-              Blog
-            </SocialLink>
-          </SocialLinks>
-          <Copyright>©2025 KimSoyeon</Copyright>
-        </ContactContainer>
-      </InnerContainer>
-    </Wrapper>
+  const socialLinkStyle =
+    "relative after:block after:absolute after:h-[1px] after:w-[0] after:transition-[width] after:duration-500 hover:after:w-full hover:after:bg-black";
 
+  return (
+    <section id="contact" className="w-full h-dvh">
+      <div className="w-(--default-width) max-w-(--max-width) h-full grid grid-row-3 mx-auto">
+        <div className="row-start-2 row-end-3 flex justify-center text-white font-[PartialSansKR-Regular] text-[min(10vw,8rem)] text-center]">
+          {Message}
+        </div>
+        <div className="row-start-3 row-end-4 flex flex-col gap-[0.5rem] justify-start items-center">
+          <p>soyeon364@naver.com</p>
+          <div className="flex gap-[1rem]">
+            <a
+              href="https://github.com/sykim0181"
+              target="_blank"
+              className={socialLinkStyle}
+            >
+              Github
+            </a>
+            <a
+              href="https://sy-it.tistory.com/"
+              target="_blank"
+              className={socialLinkStyle}
+            >
+              Blog
+            </a>
+          </div>
+          <p className="text-[#aeaeae] text-[0.8rem]">©2025 KimSoyeon</p>
+        </div>
+      </div>
+    </section>
   );
 };
 

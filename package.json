@@ -12,19 +12,23 @@
   },
   "dependencies": {
     "@babel/runtime": ">=7.26.10",
+    "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.49.1",
+    "@tailwindcss/postcss": "^4.0.17",
     "@tanstack/react-query": "^5.67.2",
     "install": "^0.13.0",
     "jotai": "^2.12.1",
     "motion": "^12.4.10",
     "next": "^15.2.4",
     "npm": "^11.2.0",
+    "postcss": "^8.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-error-boundary": "^5.0.0",
     "react-icons": "^5.5.0",
     "react-responsive": "^10.0.1",
-    "styled-components": "^6.1.15"
+    "styled-components": "^6.1.15",
+    "tailwindcss": "^4.0.17"
   },
   "devDependencies": {
     "@babel/runtime": ">=7.26.10",

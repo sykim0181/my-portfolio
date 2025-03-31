@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { pretendard } from "../fonts/fonts";
-import "../styles/common.css";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "김소연의 포트폴리오",
@@ -21,6 +21,7 @@ export default function RootLayout({
         <main id="root">
           {children}
         </main>
+        {/* <div id="modal-root" /> */}
       </body>
     </html>
   );

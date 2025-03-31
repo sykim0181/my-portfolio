@@ -1,23 +1,8 @@
+"use client";
+
 import { useMemo } from "react";
 import { motion, MotionStyle, Variants } from "motion/react";
-import styled from "styled-components";
 import useCursor from "../../hooks/useCursor";
-
-const Container = styled.div`
-  z-index: 100;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-`;
-
-const Wrapper = styled(motion.div)`
-  background-color: var(--primary-color);
-  box-sizing: border-box;
-  pointer-events: none;
-`;
 
 const Cursor = () => {
   const { x, y, ref, type, text } = useCursor();
@@ -77,11 +62,20 @@ const Cursor = () => {
   };
 
   return (
-    <Container id="container-cursor">
-      <Wrapper ref={ref} variants={variants} animate={variant} style={style}>
+    <div
+      id="container-cursor"
+      className="fixed top-0 left-0 w-full h-full pointer-events-none z-100"
+    >
+      <motion.div
+        ref={ref}
+        className="bg-(--primary-color) box-border pointer-events-none"
+        variants={variants}
+        animate={variant}
+        style={style}
+      >
         {text}
-      </Wrapper>
-    </Container>
+      </motion.div>
+    </div>
   );
 };
 

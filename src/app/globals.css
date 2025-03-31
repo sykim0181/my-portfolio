@@ -1,4 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 30rem;
+}
 
 #root {
   --default-width: 80%;
@@ -56,6 +60,15 @@ button {
 }
 
 /* font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @font-face {
   font-family: "SBAggroB";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff")
