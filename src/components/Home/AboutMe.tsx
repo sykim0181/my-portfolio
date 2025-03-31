@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import styled from "styled-components";
 import { FaStarOfLife } from "react-icons/fa6";

@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { motion } from "motion/react";
 
+const Wrapper = styled.section`
+  width: 100%;
+  height: 100dvh;
+`;
+
 const InnerContainer = styled.div`
   width: var(--default-width);
   max-width: var(--max-width);
@@ -81,21 +86,24 @@ const LastSection = () => {
   ));
 
   return (
-    <InnerContainer>
-      <MessageContainer>{Message}</MessageContainer>
-      <ContactContainer>
-        <p>soyeon364@naver.com</p>
-        <SocialLinks>
-          <SocialLink href="https://github.com/sykim0181" target="_blank">
-            Github
-          </SocialLink>
-          <SocialLink href="https://sy-it.tistory.com/" target="_blank">
-            Blog
-          </SocialLink>
-        </SocialLinks>
-        <Copyright>©2025 KimSoyeon</Copyright>
-      </ContactContainer>
-    </InnerContainer>
+    <Wrapper id="contact">
+      <InnerContainer>
+        <MessageContainer>{Message}</MessageContainer>
+        <ContactContainer>
+          <p>soyeon364@naver.com</p>
+          <SocialLinks>
+            <SocialLink href="https://github.com/sykim0181" target="_blank">
+              Github
+            </SocialLink>
+            <SocialLink href="https://sy-it.tistory.com/" target="_blank">
+              Blog
+            </SocialLink>
+          </SocialLinks>
+          <Copyright>©2025 KimSoyeon</Copyright>
+        </ContactContainer>
+      </InnerContainer>
+    </Wrapper>
+
   );
 };
 

@@ -2,10 +2,9 @@ import styled from "styled-components";
 import { IoIosArrowRoundDown } from "react-icons/io";
 import useResponsive from "../../hooks/useResponsive";
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   width: 100%;
-  height: 100%;
-  background-color: white;
+  height: 100dvh;
 `;
 
 const InnerContainer = styled.div`
@@ -95,7 +94,7 @@ const FirstSection = () => {
       : CommonIntroduction;
 
   return (
-    <Wrapper>
+    <Wrapper id="first">
       <InnerContainer>
         <HeadingContainer>
           <H1>Portfolio</H1>

@@ -3,8 +3,8 @@ import { Project } from "../types/commonTypes";
 import { Database } from "../types/supabase";
 
 const supabase = createClient<Database>(
-  import.meta.env.VITE_SUPABASE_PROJECT_URL!,
-  import.meta.env.VITE_SUPABASE_API_KEY!
+  process.env.NEXT_PUBLIC_SUPABASE_PROJECT_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_API_KEY!
 );
 
 export async function getProject(id: number): Promise<Project> {

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { motion, Variants } from "motion/react";
 import { useSetAtom } from "jotai";
-import { useSearchParams } from "react-router";
 import { cursorTextAtom, cursorTypeAtom } from "../../atoms/cursorAtom";
 
 const Wrapper = styled(motion.div)`
@@ -36,14 +35,14 @@ const ProjectItem = (props: Props) => {
   const setCursorType = useSetAtom(cursorTypeAtom);
   const setCursorText = useSetAtom(cursorTextAtom);
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
 
   const onClick = () => {
     const params = new URLSearchParams();
-    params.set("modal", "project");
-    params.set("projectId", id.toString());
+    // params.set("modal", "project");
+    // params.set("projectId", id.toString());
 
-    setSearchParams(params);
+    // setSearchParams(params);
   }
 
   const onMouseMove = () => {
@@ -52,10 +51,12 @@ const ProjectItem = (props: Props) => {
   };
 
   const onMouseLeave = () => {
-    if (!searchParams.has("modal")) {
-      setCursorType("default");
-      setCursorText("");
-    }
+    setCursorType("default");
+    setCursorText("");
+    // if (!searchParams.has("modal")) {
+    //   setCursorType("default");
+    //   setCursorText("");
+    // }
   };
 
   const variants: Variants = {

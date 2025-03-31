@@ -1,6 +1,5 @@
 import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
-import { useLocation, useSearchParams } from "react-router";
 import {
   cursorPositionAtom,
   cursorTextAtom,
@@ -34,21 +33,20 @@ const useCursor = () => {
     position,
   });
 
-  const location = useLocation();
-  const [searchParams, _] = useSearchParams();
-
   // 경로에 따른 커서 타입 지정
   useEffect(() => {
-    if (searchParams.get("modal") !== null) {
-      setCursorType("none");
-      setCursorText("");
-    } else {
-      if (location.pathname === "/") {
-        setCursorType("default");
-        setCursorText("");
-      }
-    }
-  }, [location, searchParams]);
+    // if (searchParams.get("modal") !== null) {
+    //   setCursorType("none");
+    //   setCursorText("");
+    // } else {
+    //   if (location.pathname === "/") {
+    //     setCursorType("default");
+    //     setCursorText("");
+    //   }
+    // }
+    setCursorType("default");
+    setCursorText("");
+  }, []);
 
   const throttle = useRef<boolean>(false);
 

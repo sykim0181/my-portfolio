@@ -5,7 +5,7 @@ import AboutMe from "./AboutMe";
 import { appearMotionProps } from "../../constants/motionConfig";
 import Profile from "./Profile";
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   width: 100%;
   padding: 3rem 0;
   position: relative;
@@ -30,7 +30,7 @@ const InnerContainer = styled.div`
 
 const AboutSection = () => {
   return (
-    <Wrapper>
+    <Wrapper id="about">
       <AboutText {...appearMotionProps}>About</AboutText>
       <InnerContainer>
         <AboutMe />

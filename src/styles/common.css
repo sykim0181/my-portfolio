@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fastly.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css");
 
 #root {
   --default-width: 80%;
@@ -16,7 +15,6 @@
 
 body {
   margin: 0;
-  font-family: "Pretentard-Regular";
 }
 
 h1,
@@ -58,12 +56,6 @@ button {
 }
 
 /* font */
-@font-face {
-  font-family: "PretenTard-Regular";
-  font-weight: normal;
-  src: url("./fonts/Pretendard-Regular.ttf");
-}
-
 @font-face {
   font-family: "SBAggroB";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff")

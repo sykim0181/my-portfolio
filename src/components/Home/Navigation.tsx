@@ -1,6 +1,5 @@
 import { useInView } from "motion/react";
 import React from "react";
-import { NavLink } from "react-router";
 import styled from "styled-components";
 
 const Wrapper = styled.nav`
@@ -61,13 +60,13 @@ const Navigation = (props: NavigationProps) => {
     <Wrapper>
       <List>
         <ListItem className={sectionsInView[0] ? "selected" : undefined}>
-          <NavLink to="/#about">About</NavLink>
+          {/* <NavLink to="/#about">About</NavLink> */}
         </ListItem>
         <ListItem className={sectionsInView[1] ? "selected" : undefined}>
-          <NavLink to="/#projects">Project</NavLink>
+          {/* <NavLink to="/#projects">Project</NavLink> */}
         </ListItem>
         <ListItem className={sectionsInView[2] ? "selected" : undefined}>
-          <NavLink to="/#contact">Contact</NavLink>
+          {/* <NavLink to="/#contact">Contact</NavLink> */}
         </ListItem>
       </List>
     </Wrapper>

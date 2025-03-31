@@ -46,7 +46,7 @@ const projectDatas: {
   },
 ];
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   width: 100%;
   box-sizing: border-box;
   padding: 3rem 0;
@@ -89,7 +89,7 @@ const ProjectSection = () => {
   const ProjectList = isTablet ? ProjectListForMobile : ProjectListForPC;
 
   return (
-    <Wrapper>
+    <Wrapper id="projects">
       <Title {...appearMotionProps}>Project</Title>
       <InnerContainer>
         <ProjectList>
