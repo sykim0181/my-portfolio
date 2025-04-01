@@ -29,3 +29,5 @@ next-env.d.ts
 
 # aws ec2 instance key
 my-portfolio-key.pem
+
+.env

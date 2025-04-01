@@ -1,27 +1,4 @@
-import styled from "styled-components";
 import { Description } from "../../types/commonTypes";
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
-
-const ParagraphWrapper = styled.div`
-  display: flex;
-
-  & p:first-of-type {
-    margin-right: 1rem;
-  }
-`;
-
-const ContentWrapper = styled.div`
-  margin-left: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
-
 interface DescriptionParagraphProps {
   description: Description;
 }
@@ -30,23 +7,23 @@ const DescriptionParagraph = (props: DescriptionParagraphProps) => {
   const { description } = props;
 
   return (
-    <Wrapper>
-      <ParagraphWrapper>
+    <div className="flex flex-col gap-[0.5rem]">
+      <div className="flex gap-[1rem]">
         <p>•</p>
         <p>{description.title}</p>
-      </ParagraphWrapper>
+      </div>
 
       {description.content && (
-        <ContentWrapper>
+        <div className="flex flex-col gap-[0.5rem] ml-[1rem]">
           {description.content.map((dsct, index) => (
-            <ParagraphWrapper key={`content(${index})`}>
+            <div key={`content(${index})`} className="flex gap-[1rem]">
               <p>◦</p>
               <p>{dsct}</p>
-            </ParagraphWrapper>
+            </div>
           ))}
-        </ContentWrapper>
+        </div>
       )}
-    </Wrapper>
+    </div>
   );
 };
 

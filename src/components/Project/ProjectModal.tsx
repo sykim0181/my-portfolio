@@ -1,49 +1,18 @@
-import styled from "styled-components";
-import { useQuery } from "@tanstack/react-query";
+"use client";
+
 import { motion } from "motion/react";
-import { getProject } from "../../API/supabase";
-import ProjectErrorBoundary from "./ProjectErrorBoundary";
-import ProjectModalContent from "./ProjectModalContent";
-import ProjectModalHeader from "./ProjectModalHeader";
-
-const Wrapper = styled(motion.div)`
-  width: 100%;
-  height: calc(100% - 30px);
-  background-color: white;
-  position: absolute;
-  bottom: 0;
-  overflow-y: scroll;
-`;
-
-const ContentWrapper = styled.div`
-  width: 100%;
-  box-sizing: border-box;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-`;
 
 interface ProjectModalProps {
-  projectId: number;
+  children: React.ReactNode;
 }
 
 const ProjectModal = (props: ProjectModalProps) => {
-  const { projectId } = props;
-
-  const { data, error, isFetching } = useQuery({
-    queryKey: ["project", projectId],
-    queryFn: async () => {
-      const project = await getProject(projectId);
-      return project;
-    },
-    staleTime: 1000 * 60 * 5,
-    gcTime: 1000 * 60 * 30
-  });
+  const { children } = props;
 
   return (
-    <Wrapper
-      id="project-modal"
+    <motion.div
+      id="modal-project"
+      className="w-full h-[calc(100%-30px)] overflow-y-scroll absolute bottom-0 bg-white"
       initial={{ translateY: "100%" }}
       animate={{
         translateY: 0,
@@ -54,18 +23,8 @@ const ProjectModal = (props: ProjectModalProps) => {
         bounce: 0,
       }}
     >
-      <ProjectModalHeader project={data} />
-
-      <ContentWrapper>
-        <ProjectErrorBoundary>
-          <ProjectModalContent
-            project={data}
-            isFetching={isFetching}
-            error={error}
-          />
-        </ProjectErrorBoundary>
-      </ContentWrapper>
-    </Wrapper>
+      {children}
+    </motion.div>
   );
 };
 
