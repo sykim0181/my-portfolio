@@ -1,9 +1,9 @@
-import { createClient } from "../../../../libs/supabase/server";
-import ProjectContent from "../../../../components/Project/ProjectContent";
-import ProjectHeader from "../../../../components/Project/ProjectHeader";
-import { Project } from "../../../../types/commonTypes";
-import { Root } from "../../../../components/Common/Modal";
-import ProjectModal from "../../../../components/Project/ProjectModal";
+import { createClient } from "@/libs/supabase/server";
+import ProjectContent from "@/components/Project/ProjectContent";
+import ProjectHeader from "@/components/Project/ProjectHeader";
+import { Project } from "@/types/commonTypes";
+import { Root } from "@/components/Common/Modal";
+import ProjectModal from "@/components/Project/ProjectModal";
 
 async function getProjectById(id: number) {
   const supabase = await createClient();

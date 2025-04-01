@@ -1,5 +1,5 @@
 import { atom } from "jotai";
-import { Position } from "../types/commonTypes";
+import { Position } from "@/types/commonTypes";
 
 export type CursorType = "default" | "project" | "none";
 

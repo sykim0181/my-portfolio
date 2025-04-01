@@ -1,5 +1,5 @@
 import { Montserrat } from "next/font/google";
-import { profileData } from "../../data/profile";
+import { profileData } from "@/data/profile";
 
 const montserrat_italic = Montserrat({
   subsets: ["latin"],

@@ -2,7 +2,7 @@
 
 import { Montserrat } from "next/font/google";
 import { useState } from "react";
-import { TSkill, skillData } from "../../data/skill";
+import { TSkill, skillData } from "@/data/skill";
 
 const montserrat_bold = Montserrat({
   subsets: ["latin"],

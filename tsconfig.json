@@ -1,10 +1,4 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    }
-  ],
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -25,9 +19,8 @@
       }
     ],
     "strictNullChecks": true,
-    "baseUrl": "src/",
     "paths": {
-      "@/components/*": ["components/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": [

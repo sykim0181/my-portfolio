@@ -1,5 +1,5 @@
-import { Description, Project } from "../../types/commonTypes";
-import { convertToPeriodStr } from "../../utils";
+import { Description, Project } from "@/types/commonTypes";
+import { convertToPeriodStr } from "@/utils";
 import DescriptionParagraph from "../Common/DescriptionParagraph";
 import ProjectImage from "./ProjectImage";
 

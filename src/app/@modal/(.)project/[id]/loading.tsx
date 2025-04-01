@@ -1,5 +1,5 @@
-import { Root } from "../../../../components/Common/Modal";
-import ProjectModal from "../../../../components/Project/ProjectModal";
+import { Root } from "@/components/Common/Modal";
+import ProjectModal from "@/components/Project/ProjectModal";
 
 const Loading = () => {
   const skeleton = "bg-(--skeleton-color) rounded-[15px]"

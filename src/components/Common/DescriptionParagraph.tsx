@@ -1,4 +1,4 @@
-import { Description } from "../../types/commonTypes";
+import { Description } from "@/types/commonTypes";
 interface DescriptionParagraphProps {
   description: Description;
 }

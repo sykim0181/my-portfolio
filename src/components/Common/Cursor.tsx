@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { motion, MotionStyle, Variants } from "motion/react";
-import useCursor from "../../hooks/useCursor";
+import useCursor from "@/hooks/useCursor";
 
 const Cursor = () => {
   const { x, y, ref, type, text } = useCursor();

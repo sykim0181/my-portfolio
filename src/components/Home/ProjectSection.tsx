@@ -1,5 +1,5 @@
 import ProjectItem from "./ProjectItem";
-import { projectData } from "../../data/project";
+import { projectData } from "@/data/project";
 
 const ProjectSection = () => {
   return (

@@ -6,8 +6,8 @@ import {
   IoOpenOutline,
   IoClose,
 } from "react-icons/io5";
-import { Project } from "../../types/commonTypes";
-import { CloseButton } from "../../components/Common/Modal";
+import { Project } from "@/types/commonTypes";
+import { CloseButton } from "@/components/Common/Modal";
 
 interface ProjectHeaderProps {
   project: Project;

@@ -3,7 +3,7 @@
 import { motion, Variants } from "motion/react";
 import { useSetAtom } from "jotai";
 import Link from "next/link";
-import { cursorTextAtom, cursorTypeAtom } from "../../atoms/cursorAtom";
+import { cursorTextAtom, cursorTypeAtom } from "@/atoms/cursorAtom";
 
 interface Props {
   id: number;

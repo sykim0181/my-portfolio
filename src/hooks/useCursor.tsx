@@ -5,9 +5,9 @@ import {
   cursorTextAtom,
   CursorType,
   cursorTypeAtom,
-} from "../atoms/cursorAtom";
-import { Position } from "../types/commonTypes";
-import { checkIsMobile } from "../utils";
+} from "@/atoms/cursorAtom";
+import { Position } from "@/types/commonTypes";
+import { checkIsMobile } from "@/utils";
 
 const delay = 100;
 
