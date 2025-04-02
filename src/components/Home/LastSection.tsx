@@ -2,10 +2,15 @@
 
 import { motion } from "motion/react";
 
-const LastSection = () => {
+interface LastSectionProps {
+  ref: React.RefObject<HTMLDivElement | null>;
+}
+
+const LastSection = ({ ref }: LastSectionProps) => {
   const Message = Array.from("Thank You").map((char, index) => (
     <motion.span
       key={`message-${index}`}
+      className="h-fit"
       initial={{
         translateY: "100%",
         rotateX: "-80deg",
@@ -29,9 +34,9 @@ const LastSection = () => {
     "relative after:block after:absolute after:h-[1px] after:w-[0] after:transition-[width] after:duration-500 hover:after:w-full hover:after:bg-black";
 
   return (
-    <section id="contact" className="w-full h-dvh">
+    <section id="contact" ref={ref} className="relative w-full h-dvh bg-(--bg-color) z-1">
       <div className="w-(--default-width) max-w-(--max-width) h-full grid grid-row-3 mx-auto">
-        <div className="row-start-2 row-end-3 flex justify-center text-white font-[PartialSansKR-Regular] text-[min(10vw,8rem)] text-center]">
+        <div className="row-start-2 row-end-3 flex justify-center items-center text-white font-[PartialSansKR-Regular] text-[min(10vw,8rem)] text-center]">
           {Message}
         </div>
         <div className="row-start-3 row-end-4 flex flex-col gap-[0.5rem] justify-start items-center">

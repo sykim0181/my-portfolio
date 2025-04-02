@@ -35,7 +35,7 @@ export const Root = (props: ModalProps) => {
 
   return createPortal(
     <ModalContext.Provider value={{ closeModal }}>
-      <div className="w-dvw h-dvh fixed top-0 left-0">
+      <div className="w-dvw h-dvh fixed top-0 left-0 z-500">
         <Overlay />
         <AnimatePresence>{isOpen && children}</AnimatePresence>
       </div>

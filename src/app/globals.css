@@ -12,12 +12,17 @@
   background-color: #eaeaea;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   --default-width: 80%;
   --max-width: 1024px;
   --primary-color: #5e63d4;
   --secondary-color: #f68eab;
   --skeleton-color: rgba(206, 206, 206, 0.5);
+  --bg-color: #eaeaea;
 
   margin: 0;
 }
@@ -42,7 +47,6 @@ img {
 a {
   cursor: pointer;
   text-decoration: none;
-  color: black;
 }
 
 button {
@@ -50,6 +54,10 @@ button {
   border: none;
   cursor: pointer;
   padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 .hide_scrollbar {

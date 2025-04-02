@@ -13,12 +13,12 @@ const AboutMe = () => {
         <div>
           <div className="flex gap-[0.5rem] items-center mb-[1rem]">
             <FaStarOfLife color="#f68eab" />
-            <p className="font-bold text-[1rem] xs:text-[1.5rem]">
+            <p className="font-bold text-[1rem] xs:text-[1.2rem]">
               끈기와 성실함이 무기인 개발자
             </p>
           </div>
 
-          <p className="mt-[1rem] text-[0.9rem] xs:text-[1.2rem]">
+          <p className="text-[0.9rem] xs:text-[1rem]">
             주어진 문제를 끈질기게 파고들어 해결합니다.
             <br />
             모든 과제에 최선을 다하는 태도로 빠른 적응과 성장을 이루어 냅니다.
@@ -28,12 +28,12 @@ const AboutMe = () => {
         <div>
           <div className="flex gap-[0.5rem] items-center mb-[1rem]">
             <FaStarOfLife color="#f68eab" />
-            <p className="font-bold text-[1rem] xs:text-[1.5rem]">
+            <p className="font-bold text-[1rem] xs:text-[1.2rem]">
               성장을 위한 지속적 학습자
             </p>
           </div>
 
-          <p className="text-[0.9rem] xs:text-[1.2rem]">
+          <p className="text-[0.9rem] xs:text-[1rem]">
             새로운 기술에 도전하고 학습하며, 꾸준히 더 나은 개발자로
             성장하겠습니다.
           </p>

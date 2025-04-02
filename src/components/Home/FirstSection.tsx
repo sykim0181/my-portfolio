@@ -1,8 +1,8 @@
-// import { IoIosArrowRoundDown } from "react-icons/io";
+import { IoIosArrowRoundDown } from "react-icons/io";
 
 const FirstSection = () => {
   return (
-    <div id="first" className="w-full h-dvh">
+    <div id="first" className="sticky top-0 w-full h-dvh bg-white">
       <div className="w-(--default-width) h-full max-w-(--max-width) my-0 mx-auto flex flex-col justify-center align-center">
         <div className="flex-1 flex flex-col justify-center w-full relative">
           <h1 className="text-start text-[15vw] md:text-[min(15vw,8rem)] font-[SBAggroB]">
@@ -12,7 +12,7 @@ const FirstSection = () => {
             안녕하세요, 프론트엔드 개발자 김소연입니다 :)
           </p>
         </div>
-        {/* <div className="flex w-full align-end justify-between py-[2rem]">
+        <div className="flex w-full align-end justify-between py-[2rem]">
           <IoIosArrowRoundDown
             className="text-[3rem] xs:text-[3.5rem] md:text-[5rem]"
           />
@@ -20,7 +20,7 @@ const FirstSection = () => {
             <p>Email</p>
             <p className="italic">soyeon364@naver.com</p>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,13 @@
 import ProjectItem from "./ProjectItem";
 import { projectData } from "@/data/project";
 
-const ProjectSection = () => {
+interface ProjectSectionProps {
+  ref: React.RefObject<HTMLDivElement | null>;
+}
+
+const ProjectSection = ({ ref }: ProjectSectionProps) => {
   return (
-    <section id="projects" className="w-full box-border py-[3rem]">
+    <section id="projects" ref={ref} className="relative w-full box-border py-[3rem] z-1 bg-(--bg-color)">
       <h2 className="text-white font-[PartialSansKR-Regular] text-[min(15vw,6rem)] font-normal">
         Project
       </h2>

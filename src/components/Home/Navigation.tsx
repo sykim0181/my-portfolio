@@ -1,76 +1,64 @@
 import { useInView } from "motion/react";
-import React from "react";
-import styled from "styled-components";
+import { Montserrat } from "next/font/google";
+import Link from "next/link";
+import React, { memo, useState } from "react";
 
-const Wrapper = styled.nav`
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
-`;
-
-const List = styled.ul`
-  display: flex;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  margin: 0;
-  border-radius: 100px;
-  overflow: hidden;
-  background-color: black;
-  color: white;
-`;
-
-const ListItem = styled.li`
-  width: 80px;
-  list-style: none;
-  padding: 0.5rem;
-  border-radius: 100px;
-  display: flex;
-  justify-content: center;
-
-  & a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: white;
-    text-align: center;
-  }
-
-  &:hover,
-  &.selected {
-    background-color: white;
-    & a {
-      color: black;
-    }
-  }
-`;
-
+type TSection = {
+  name: string;
+  id: string;
+  ref: React.RefObject<HTMLDivElement | null>;
+};
 interface NavigationProps {
-  sectionRefs: React.RefObject<HTMLDivElement | null>[];
+  sections: TSection[];
 }
 
-const Navigation = (props: NavigationProps) => {
-  const { sectionRefs } = props;
+const montserrat_italic = Montserrat({
+  subsets: ["latin"],
+  style: "italic",
+  weight: "700",
+});
 
-  const sectionsInView = sectionRefs.map((ref) =>
-    useInView(ref, { amount: "all" })
+const Navigation = (props: NavigationProps) => {
+  const { sections } = props;
+
+  const sectionsInView = sections.map(({ ref }) =>
+    useInView(ref, { amount: "some" })
   );
 
+  const sectionIdxInView = sectionsInView.findLastIndex((value) => value);
+  console.log("sectionIdxInView:", sectionIdxInView);
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <Wrapper>
-      <List>
-        <ListItem className={sectionsInView[0] ? "selected" : undefined}>
-          {/* <NavLink to="/#about">About</NavLink> */}
-        </ListItem>
-        <ListItem className={sectionsInView[1] ? "selected" : undefined}>
-          {/* <NavLink to="/#projects">Project</NavLink> */}
-        </ListItem>
-        <ListItem className={sectionsInView[2] ? "selected" : undefined}>
-          {/* <NavLink to="/#contact">Contact</NavLink> */}
-        </ListItem>
-      </List>
-    </Wrapper>
+    <nav
+      className={`fixed top-[5rem] right-[5%] z-50`}
+      onMouseOver={() => setIsOpen(true)}
+      onMouseOut={() => setIsOpen(false)}
+    >
+      <ul className="flex flex-col items-end gap-[0.5rem]">
+        {sections.map(({ name, id }, idx) => {
+          const isInView = idx === sectionIdxInView;
+          const show = isInView ? true : isOpen ? true : false;
+
+          return (
+            <li
+              className={`relative flex gap-[1rem] items-center ${show ? "visible pointer-events-auto" : "invisible pointer-events-none"} hover:before:w-1 hover:before:h-1 hover:before:bg-(--primary-color)`}
+              key={`nav-${id}`}
+            >
+              <p className="absolute -right-[1rem] -top-[0.5rem] text-[0.6rem]">{`0${idx + 1}`}</p>
+              <Link
+                href={`/#${id}`}
+                className={`text-[1.2rem] ${isInView === true ? "text-(--primary-color)" : "text-black"} ${montserrat_italic.className}`}
+              >
+                {name}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 };
 
-export default Navigation;
+export default memo(Navigation);
