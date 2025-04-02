@@ -17,8 +17,8 @@ const FirstSection = () => {
             className="text-[3rem] xs:text-[3.5rem] md:text-[5rem]"
           />
           <div className="flex flex-col xs:flex-row gap-0 xs:gap-[1rem] items-end xs:items-start text-[0.8rem] xs:text-[1rem] md:text-[1.2rem]">
-            <p>Email</p>
-            <p className="italic">soyeon364@naver.com</p>
+            <p>By</p>
+            <p className="italic">Soyeon Kim</p>
           </div>
         </div>
       </div>

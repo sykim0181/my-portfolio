@@ -1,11 +1,14 @@
+import { motion } from "motion/react";
 import { FaStarOfLife } from "react-icons/fa6";
 import Memoticon from "./Memoticon";
+import { appearMotionProps } from "@/constants/motionConfig";
 
 const AboutMe = () => {
   return (
-    <section
+    <motion.section
       id="about_me"
       className="flex flex-col lg:flex-row items-center lg:justify-between"
+      {...appearMotionProps}
     >
       <Memoticon />
 
@@ -39,7 +42,7 @@ const AboutMe = () => {
           </p>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

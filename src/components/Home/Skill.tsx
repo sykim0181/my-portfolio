@@ -2,7 +2,9 @@
 
 import { Montserrat } from "next/font/google";
 import { useState } from "react";
+import { motion } from "motion/react";
 import { TSkill, skillData } from "@/data/skill";
+import { appearMotionProps } from "@/constants/motionConfig";
 
 const montserrat_bold = Montserrat({
   subsets: ["latin"],
@@ -11,7 +13,10 @@ const montserrat_bold = Montserrat({
 
 const Skill = () => {
   return (
-    <div className="flex flex-col gap-[1rem] items-center">
+    <motion.section
+      className="flex flex-col gap-[1rem] items-center"
+      {...appearMotionProps}
+    >
       <h3 className={`text-[2.5rem] text-center ${montserrat_bold.className}`}>
         Skill
       </h3>
@@ -24,7 +29,7 @@ const Skill = () => {
           <SkillItem skill={skill} key={skill.name} />
         ))}
       </div>
-    </div>
+    </motion.section>
   );
 };
 

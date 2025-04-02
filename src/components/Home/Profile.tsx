@@ -1,5 +1,7 @@
 import { Montserrat } from "next/font/google";
+import { motion } from "motion/react";
 import { profileData } from "@/data/profile";
+import { appearMotionProps } from "@/constants/motionConfig";
 
 const montserrat_italic = Montserrat({
   subsets: ["latin"],
@@ -13,7 +15,7 @@ const montserrat_bold = Montserrat({
 
 const Profile = () => {
   return (
-    <section>
+    <motion.section {...appearMotionProps}>
       <h3 className={`text-[2.5rem] text-center ${montserrat_bold.className}`}>
         Profile
       </h3>
@@ -51,7 +53,7 @@ const Profile = () => {
           </section>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 
